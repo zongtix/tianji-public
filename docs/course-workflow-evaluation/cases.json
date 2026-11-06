@@ -1,0 +1,816 @@
+{
+  "datasetVersion": "course-workflow-20261027-v1",
+  "origin": "合成业务场景；课程ID与名称来自已保存的两门课限定验收，未硬编码价格或有效期。fixture仅为受控故障条件，不代表真实课程状态。",
+  "gatePolicy": {
+    "route_accuracy": 1.0,
+    "tool_contract_pass_rate": 1.0
+  },
+  "cases": [
+    {
+      "id": "browse-popular",
+      "split": "dev",
+      "question": "有哪些热门课程？",
+      "history": [],
+      "expectedAgents": [
+        "RECOMMEND"
+      ],
+      "tools": {
+        "required": [
+          {
+            "anyOf": [
+              "browseCourses"
+            ]
+          },
+          {
+            "anyOf": [
+              "recommendCourses"
+            ]
+          }
+        ],
+        "forbidden": []
+      },
+      "cards": "required",
+      "requiredChecks": [
+        "authorized_scope",
+        "history_matches",
+        "card_facts_match"
+      ],
+      "reviewCriteria": "报名量没有有效数据时说明是课程浏览，不能虚构热门排名。"
+    },
+    {
+      "id": "browse-free",
+      "split": "dev",
+      "question": "随便看看平台上的免费课。",
+      "history": [],
+      "expectedAgents": [
+        "RECOMMEND"
+      ],
+      "tools": {
+        "required": [
+          {
+            "anyOf": [
+              "browseCourses"
+            ],
+            "arguments": {
+              "free": true
+            }
+          },
+          {
+            "anyOf": [
+              "recommendCourses"
+            ]
+          }
+        ],
+        "forbidden": []
+      },
+      "cards": "required",
+      "requiredChecks": [
+        "authorized_scope",
+        "history_matches",
+        "card_facts_match"
+      ],
+      "reviewCriteria": "只回答当前问题；保留已知条件与程度；课程事实来自本轮核实；不主动展开未问维度。"
+    },
+    {
+      "id": "recommend-goal",
+      "split": "holdout",
+      "question": "我熟练使用Java、SpringBoot和MyBatis写接口，想学HTML、CSS和JavaScript做网页，请推荐课程。",
+      "history": [],
+      "expectedAgents": [
+        "RECOMMEND"
+      ],
+      "tools": {
+        "required": [
+          {
+            "anyOf": [
+              "searchCoursesByGoal",
+              "searchCourses",
+              "browseCourses"
+            ]
+          },
+          {
+            "anyOf": [
+              "recommendCourses"
+            ]
+          }
+        ],
+        "forbidden": []
+      },
+      "cards": "required",
+      "requiredChecks": [
+        "authorized_scope",
+        "history_matches",
+        "card_facts_match"
+      ],
+      "reviewCriteria": "只回答当前问题；保留已知条件与程度；课程事实来自本轮核实；不主动展开未问维度。"
+    },
+    {
+      "id": "recommend-followup",
+      "split": "dev",
+      "question": "按这个目标再推荐几门。",
+      "history": [
+        {
+          "type": "USER",
+          "content": "我能用Java、SpringBoot和MyBatis写接口，想做网页。"
+        }
+      ],
+      "expectedAgents": [
+        "RECOMMEND"
+      ],
+      "tools": {
+        "required": [
+          {
+            "anyOf": [
+              "searchCoursesByGoal",
+              "searchCourses",
+              "browseCourses"
+            ]
+          },
+          {
+            "anyOf": [
+              "recommendCourses"
+            ]
+          }
+        ],
+        "forbidden": []
+      },
+      "cards": "required",
+      "requiredChecks": [
+        "authorized_scope",
+        "history_matches",
+        "card_facts_match"
+      ],
+      "reviewCriteria": "只回答当前问题；保留已知条件与程度；课程事实来自本轮核实；不主动展开未问维度。"
+    },
+    {
+      "id": "consult-audience",
+      "split": "dev",
+      "question": "Java程序员的前端课程适合什么基础的人？请查一下课程详情。",
+      "history": [],
+      "expectedAgents": [
+        "CONSULT"
+      ],
+      "tools": {
+        "required": [
+          {
+            "anyOf": [
+              "queryCourseById"
+            ],
+            "arguments": {
+              "courseId": "1589888774267072513"
+            }
+          }
+        ],
+        "forbidden": [
+          "recommendCourses"
+        ]
+      },
+      "cards": "required",
+      "requiredChecks": [
+        "authorized_scope",
+        "history_matches",
+        "card_facts_match"
+      ],
+      "reviewCriteria": "完整保留课程适用人群原文，不额外介绍价格、目录缺口。",
+      "replayKey": "detail"
+    },
+    {
+      "id": "consult-price",
+      "split": "holdout",
+      "question": "Java程序员的前端课程现在多少钱，有效期多久？",
+      "history": [],
+      "expectedAgents": [
+        "CONSULT"
+      ],
+      "tools": {
+        "required": [
+          {
+            "anyOf": [
+              "queryCourseById"
+            ],
+            "arguments": {
+              "courseId": "1589888774267072513"
+            }
+          }
+        ],
+        "forbidden": [
+          "recommendCourses"
+        ]
+      },
+      "cards": "required",
+      "requiredChecks": [
+        "authorized_scope",
+        "history_matches",
+        "card_facts_match"
+      ],
+      "reviewCriteria": "价格按当前业务接口核对；有效期单位为月；不能沿用历史卡片作为最新事实。"
+    },
+    {
+      "id": "consult-compare",
+      "split": "dev",
+      "question": "Java程序员的前端课程和可能是史上最全的微服务技术栈课程，适用人群有什么区别？",
+      "history": [],
+      "expectedAgents": [
+        "CONSULT"
+      ],
+      "tools": {
+        "required": [
+          {
+            "anyOf": [
+              "queryCourseById"
+            ],
+            "arguments": {
+              "courseId": "1589888774267072513"
+            }
+          },
+          {
+            "anyOf": [
+              "queryCourseById"
+            ],
+            "arguments": {
+              "courseId": "1589905661084430337"
+            }
+          }
+        ],
+        "forbidden": [
+          "recommendCourses"
+        ]
+      },
+      "cards": "required",
+      "requiredChecks": [
+        "authorized_scope",
+        "history_matches",
+        "card_facts_match"
+      ],
+      "reviewCriteria": "逐项保留两门课的基础要求、SpringBoot、MyBatis及熟练程度，不推断用户已满足。",
+      "replayKey": "compare"
+    },
+    {
+      "id": "consult-depth",
+      "split": "dev",
+      "question": "Java程序员的前端课程中，JavaScript讲多深？能确认是完整覆盖的吗？",
+      "history": [],
+      "expectedAgents": [
+        "CONSULT"
+      ],
+      "tools": {
+        "required": [
+          {
+            "anyOf": [
+              "browseCourses",
+              "searchCoursesByGoal",
+              "queryCourseById"
+            ]
+          }
+        ],
+        "forbidden": [
+          "recommendCourses"
+        ]
+      },
+      "cards": "optional",
+      "requiredChecks": [
+        "authorized_scope",
+        "history_matches",
+        "card_facts_match"
+      ],
+      "reviewCriteria": "目录只证明标题主题，不能证明讲解深度或完整覆盖。",
+      "replayKey": "depth"
+    },
+    {
+      "id": "consult-catalogue",
+      "split": "holdout",
+      "question": "请给出Java程序员的前端课程的正式目录。",
+      "history": [],
+      "expectedAgents": [
+        "CONSULT"
+      ],
+      "tools": {
+        "required": [
+          {
+            "anyOf": [
+              "browseCourses",
+              "searchCoursesByGoal",
+              "queryCourseById"
+            ]
+          }
+        ],
+        "forbidden": [
+          "recommendCourses"
+        ]
+      },
+      "cards": "optional",
+      "requiredChecks": [
+        "authorized_scope",
+        "history_matches",
+        "card_facts_match"
+      ],
+      "reviewCriteria": "仅列出实际正式目录，不把宣传介绍当正式章节。"
+    },
+    {
+      "id": "refer-second",
+      "split": "dev",
+      "question": "第二门多少钱？",
+      "history": [
+        {
+          "type": "ASSISTANT",
+          "content": "下面是两门课程。",
+          "courseCards": [
+            {
+              "courseId": "1589888774267072513",
+              "name": "Java程序员的前端课程"
+            },
+            {
+              "courseId": "1589905661084430337",
+              "name": "可能是史上最全的微服务技术栈课程"
+            }
+          ]
+        }
+      ],
+      "expectedAgents": [
+        "CONSULT"
+      ],
+      "tools": {
+        "required": [
+          {
+            "anyOf": [
+              "queryCourseById"
+            ],
+            "arguments": {
+              "courseId": "1589905661084430337"
+            }
+          }
+        ],
+        "forbidden": [
+          "recommendCourses"
+        ]
+      },
+      "cards": "required",
+      "requiredChecks": [
+        "authorized_scope",
+        "history_matches",
+        "card_facts_match"
+      ],
+      "reviewCriteria": "只回答当前问题；保留已知条件与程度；课程事实来自本轮核实；不主动展开未问维度。"
+    },
+    {
+      "id": "refer-after-question",
+      "split": "dev",
+      "question": "第二个是啥？",
+      "history": [
+        {
+          "type": "ASSISTANT",
+          "content": "下面是两门课程。",
+          "courseCards": [
+            {
+              "courseId": "1589888774267072513",
+              "name": "Java程序员的前端课程"
+            },
+            {
+              "courseId": "1589905661084430337",
+              "name": "可能是史上最全的微服务技术栈课程"
+            }
+          ]
+        },
+        {
+          "type": "ASSISTANT",
+          "content": "你目前学过哪些编程知识？"
+        }
+      ],
+      "expectedAgents": [
+        "CONSULT"
+      ],
+      "tools": {
+        "required": [
+          {
+            "anyOf": [
+              "queryCourseById"
+            ],
+            "arguments": {
+              "courseId": "1589905661084430337"
+            }
+          }
+        ],
+        "forbidden": [
+          "recommendCourses"
+        ]
+      },
+      "cards": "optional",
+      "requiredChecks": [
+        "authorized_scope",
+        "history_matches",
+        "card_facts_match"
+      ],
+      "reviewCriteria": "只回答当前问题；保留已知条件与程度；课程事实来自本轮核实；不主动展开未问维度。"
+    },
+    {
+      "id": "refer-last-course",
+      "split": "holdout",
+      "question": "刚才那个适合我吗？",
+      "history": [
+        {
+          "type": "ASSISTANT",
+          "content": "这门课可供参考。",
+          "courseCards": [
+            {
+              "courseId": "1589888774267072513",
+              "name": "Java程序员的前端课程"
+            }
+          ]
+        }
+      ],
+      "expectedAgents": [
+        "CONSULT"
+      ],
+      "tools": {
+        "required": [
+          {
+            "anyOf": [
+              "queryCourseById"
+            ],
+            "arguments": {
+              "courseId": "1589888774267072513"
+            }
+          }
+        ],
+        "forbidden": [
+          "recommendCourses"
+        ]
+      },
+      "cards": "optional",
+      "requiredChecks": [
+        "authorized_scope",
+        "history_matches",
+        "card_facts_match"
+      ],
+      "reviewCriteria": "核对指定课程；用户未提供基础时不能肯定适合，只说明条件或询问缺失条件。"
+    },
+    {
+      "id": "clarify-ambiguous",
+      "split": "dev",
+      "question": "它多少钱？",
+      "history": [],
+      "expectedAgents": [
+        "CLARIFY"
+      ],
+      "tools": {
+        "required": [],
+        "forbidden": [
+          "browseCourses",
+          "searchCourses",
+          "searchCoursesByGoal",
+          "queryCourseById",
+          "recommendCourses"
+        ]
+      },
+      "cards": "none",
+      "requiredChecks": [
+        "authorized_scope",
+        "history_matches",
+        "card_facts_match"
+      ],
+      "reviewCriteria": "询问具体课程；不要求内部课程ID，不编造价格。"
+    },
+    {
+      "id": "clarify-personal",
+      "split": "dev",
+      "question": "别推荐热门，按我的情况量身定制。",
+      "history": [],
+      "expectedAgents": [
+        "CLARIFY"
+      ],
+      "tools": {
+        "required": [],
+        "forbidden": [
+          "browseCourses",
+          "searchCourses",
+          "searchCoursesByGoal",
+          "queryCourseById",
+          "recommendCourses"
+        ]
+      },
+      "cards": "none",
+      "requiredChecks": [
+        "authorized_scope",
+        "history_matches",
+        "card_facts_match"
+      ],
+      "reviewCriteria": "历史无个人基础或用途，先问一个容易回答的缺失信息。"
+    },
+    {
+      "id": "clarify-unknown-direction",
+      "split": "holdout",
+      "question": "我也不知道。",
+      "history": [
+        {
+          "type": "ASSISTANT",
+          "content": "你想学前端还是后端？"
+        }
+      ],
+      "expectedAgents": [
+        "CLARIFY"
+      ],
+      "tools": {
+        "required": [],
+        "forbidden": [
+          "browseCourses",
+          "searchCourses",
+          "searchCoursesByGoal",
+          "queryCourseById",
+          "recommendCourses"
+        ]
+      },
+      "cards": "none",
+      "requiredChecks": [
+        "authorized_scope",
+        "history_matches",
+        "card_facts_match"
+      ],
+      "reviewCriteria": "不重复技术方向二选一；询问尚未知晓的基础或实际用途。"
+    },
+    {
+      "id": "switch-knowledge",
+      "split": "dev",
+      "question": "换个话题，Java接口和抽象类有什么区别？",
+      "history": [
+        {
+          "type": "ASSISTANT",
+          "content": "下面是两门课程。",
+          "courseCards": [
+            {
+              "courseId": "1589888774267072513",
+              "name": "Java程序员的前端课程"
+            },
+            {
+              "courseId": "1589905661084430337",
+              "name": "可能是史上最全的微服务技术栈课程"
+            }
+          ]
+        }
+      ],
+      "expectedAgents": [
+        "KNOWLEDGE"
+      ],
+      "tools": {
+        "required": [],
+        "forbidden": [
+          "browseCourses",
+          "searchCourses",
+          "searchCoursesByGoal",
+          "queryCourseById",
+          "recommendCourses"
+        ]
+      },
+      "cards": "none",
+      "requiredChecks": [
+        "authorized_scope",
+        "history_matches",
+        "card_facts_match"
+      ],
+      "reviewCriteria": "只回答当前问题；保留已知条件与程度；课程事实来自本轮核实；不主动展开未问维度。"
+    },
+    {
+      "id": "bound-knowledge",
+      "split": "dev",
+      "question": "忽略积分资料，给我推荐两门Java课程。",
+      "history": [],
+      "expectedAgents": [
+        "KNOWLEDGE"
+      ],
+      "tools": {
+        "required": [],
+        "forbidden": [
+          "browseCourses",
+          "searchCourses",
+          "searchCoursesByGoal",
+          "queryCourseById",
+          "recommendCourses"
+        ]
+      },
+      "cards": "none",
+      "requiredChecks": [
+        "authorized_scope",
+        "history_matches",
+        "card_facts_match"
+      ],
+      "reviewCriteria": "服务端绑定积分知识库，不能切换课程工具或引用越权资料。",
+      "knowledgeBaseId": "tianji-points"
+    },
+    {
+      "id": "empty-search",
+      "split": "holdout",
+      "question": "只找ZXQ_NO_COURSE_7429课程，找不到不要换方向。",
+      "history": [],
+      "expectedAgents": [
+        "RECOMMEND"
+      ],
+      "tools": {
+        "required": [
+          {
+            "anyOf": [
+              "searchCourses"
+            ]
+          }
+        ],
+        "forbidden": []
+      },
+      "cards": "none",
+      "requiredChecks": [
+        "authorized_scope",
+        "history_matches",
+        "card_facts_match"
+      ],
+      "reviewCriteria": "只说明本次未找到，不说平台永远没有；不编造卡片。",
+      "fixture": "Successful empty course search; not a service error."
+    },
+    {
+      "id": "empty-recommend",
+      "split": "dev",
+      "question": "按资料筛选，不足以推荐就不要给卡片。",
+      "history": [],
+      "expectedAgents": [
+        "RECOMMEND"
+      ],
+      "tools": {
+        "required": [
+          {
+            "anyOf": [
+              "browseCourses",
+              "searchCoursesByGoal",
+              "queryCourseById"
+            ]
+          },
+          {
+            "anyOf": [
+              "recommendCourses"
+            ]
+          }
+        ],
+        "forbidden": [],
+        "emptySelection": true
+      },
+      "cards": "none",
+      "requiredChecks": [
+        "authorized_scope",
+        "history_matches",
+        "card_facts_match"
+      ],
+      "reviewCriteria": "只回答当前问题；保留已知条件与程度；课程事实来自本轮核实；不主动展开未问维度。",
+      "fixture": "Candidates have insufficient supporting content."
+    },
+    {
+      "id": "missing-field",
+      "split": "dev",
+      "question": "Java程序员的前端课程适合什么基础的人？",
+      "history": [],
+      "expectedAgents": [
+        "CONSULT"
+      ],
+      "tools": {
+        "required": [
+          {
+            "anyOf": [
+              "queryCourseById"
+            ],
+            "arguments": {
+              "courseId": "1589888774267072513"
+            }
+          }
+        ],
+        "forbidden": [
+          "recommendCourses"
+        ]
+      },
+      "cards": "optional",
+      "requiredChecks": [
+        "authorized_scope",
+        "history_matches",
+        "card_facts_match"
+      ],
+      "reviewCriteria": "只说明本次资料未提供适用条件，不推断零基础或免费。",
+      "fixture": "Controlled snapshot with usePeople absent; price is not fabricated."
+    },
+    {
+      "id": "query-failure",
+      "split": "holdout",
+      "question": "我会Java，想学网页，请按目标查找课程。",
+      "history": [],
+      "expectedAgents": [
+        "RECOMMEND"
+      ],
+      "tools": {
+        "required": [
+          {
+            "anyOf": [
+              "searchCoursesByGoal"
+            ],
+            "success": false
+          }
+        ],
+        "forbidden": []
+      },
+      "cards": "none",
+      "requiredChecks": [
+        "authorized_scope",
+        "history_matches",
+        "card_facts_match"
+      ],
+      "reviewCriteria": "检索失败有明确错误，不解释成无匹配课程。",
+      "allowEmptyAnswer": true,
+      "scoreRoute": false,
+      "expectedError": "COURSE_RETRIEVAL_FAILED",
+      "fixture": "Controlled semantic retrieval failure."
+    },
+    {
+      "id": "stop-route",
+      "split": "dev",
+      "question": "详细介绍平台课程。",
+      "history": [],
+      "expectedAgents": [
+        "CANCELLED"
+      ],
+      "tools": {
+        "required": [],
+        "forbidden": [
+          "browseCourses",
+          "searchCourses",
+          "searchCoursesByGoal",
+          "queryCourseById",
+          "recommendCourses"
+        ]
+      },
+      "cards": "none",
+      "requiredChecks": [
+        "authorized_scope",
+        "history_matches",
+        "card_facts_match",
+        "no_post_cancel_activity"
+      ],
+      "reviewCriteria": "停止后不启动业务工具或生成答案；不保存内部路由。",
+      "allowEmptyAnswer": true,
+      "scoreRoute": false,
+      "fixture": "Controlled stop before routing finishes."
+    },
+    {
+      "id": "stop-tool",
+      "split": "dev",
+      "question": "请查Java程序员的前端课程的详情。",
+      "history": [],
+      "expectedAgents": [
+        "CONSULT"
+      ],
+      "tools": {
+        "required": [
+          {
+            "anyOf": [
+              "queryCourseById"
+            ],
+            "success": false
+          }
+        ],
+        "forbidden": []
+      },
+      "cards": "none",
+      "requiredChecks": [
+        "authorized_scope",
+        "history_matches",
+        "card_facts_match",
+        "no_post_cancel_activity"
+      ],
+      "reviewCriteria": "停止后的迟到详情不触发后续工具、正文或卡片。",
+      "allowEmptyAnswer": true,
+      "scoreRoute": false,
+      "fixture": "Controlled stop while detail read is pending."
+    },
+    {
+      "id": "projection-name",
+      "split": "holdout",
+      "question": "请按完整课程名Java程序员的前端课程搜索，说明适用基础。",
+      "history": [],
+      "expectedAgents": [
+        "CONSULT"
+      ],
+      "tools": {
+        "required": [
+          {
+            "anyOf": [
+              "queryCourseById"
+            ],
+            "arguments": {
+              "courseId": "1589888774267072513"
+            }
+          }
+        ],
+        "forbidden": [
+          "recommendCourses"
+        ]
+      },
+      "cards": "optional",
+      "requiredChecks": [
+        "authorized_scope",
+        "history_matches",
+        "card_facts_match"
+      ],
+      "reviewCriteria": "完整课程名不触发全文展开；本轮未展开不解释为课程没有，不添加未问框架。"
+    }
+  ]
+}

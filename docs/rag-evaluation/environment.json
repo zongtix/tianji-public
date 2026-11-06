@@ -1,0 +1,115 @@
+{
+  "verifiedDate": "2026-10-24",
+  "elasticsearchVersion": "8.19.23",
+  "license": "basic",
+  "index": "tj_aigc_knowledge_v4_1024",
+  "countBefore": 7,
+  "countAfter": 7,
+  "textAndMetadataUnchanged": true,
+  "mappingUnchanged": true,
+  "mapping": {
+    "properties": {
+      "content": {
+        "type": "text"
+      },
+      "embedding": {
+        "type": "dense_vector",
+        "dims": 1024,
+        "index": true,
+        "similarity": "cosine",
+        "index_options": {
+          "type": "int8_hnsw",
+          "m": 16,
+          "ef_construction": 100
+        }
+      },
+      "id": {
+        "type": "keyword"
+      },
+      "metadata": {
+        "properties": {
+          "chapter": {
+            "type": "text",
+            "fields": {
+              "keyword": {
+                "type": "keyword",
+                "ignore_above": 256
+              }
+            }
+          },
+          "chunkIndex": {
+            "type": "long"
+          },
+          "contentHash": {
+            "type": "text",
+            "fields": {
+              "keyword": {
+                "type": "keyword",
+                "ignore_above": 256
+              }
+            }
+          },
+          "documentId": {
+            "type": "text",
+            "fields": {
+              "keyword": {
+                "type": "keyword",
+                "ignore_above": 256
+              }
+            }
+          },
+          "embeddingModel": {
+            "type": "text",
+            "fields": {
+              "keyword": {
+                "type": "keyword",
+                "ignore_above": 256
+              }
+            }
+          },
+          "source": {
+            "type": "text",
+            "fields": {
+              "keyword": {
+                "type": "keyword",
+                "ignore_above": 256
+              }
+            }
+          },
+          "title": {
+            "type": "text",
+            "fields": {
+              "keyword": {
+                "type": "keyword",
+                "ignore_above": 256
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "settings": {
+    "tj_aigc_knowledge_v4_1024": {
+      "settings": {
+        "index": {
+          "number_of_shards": "1",
+          "version": {
+            "created": "8537000"
+          }
+        }
+      }
+    }
+  },
+  "analyzeProbe": "403 Forbidden with existing application role; actual token output not verified",
+  "effectiveNacos": {
+    "knowledgeEnabled": true,
+    "storeType": "elasticsearch",
+    "index": "tj_aigc_knowledge_v4_1024",
+    "embeddingModel": "text-embedding-v4",
+    "dimensions": 1024
+  },
+  "langfuse": "instance and keys not configured; real end-to-end lookup not run",
+  "rerank": "dedicated endpoint/model/region/permissions/cost/credentials not verified",
+  "existingBusinessIndexWrites": false
+}

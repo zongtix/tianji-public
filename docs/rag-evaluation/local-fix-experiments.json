@@ -1,0 +1,25 @@
+{
+  "version": "local-fixes-v2-20261024",
+  "datasetVersion": "points-v1-20261024",
+  "note": "以原始案例和召回快照进行本地对照；真实模型调用须另行授权。三组均冻结 mode=B 与原 A 检索参数，仅分别改变提示词或最终选片数量。",
+  "experiments": {
+    "control": {
+      "mode": "B",
+      "configVersion": "rag-v1",
+      "promptVersion": "knowledge-v1",
+      "contextTopK": 3
+    },
+    "conditions": {
+      "mode": "B",
+      "configVersion": "rag-v1",
+      "promptVersion": "knowledge-v2-conditions",
+      "contextTopK": 3
+    },
+    "context4": {
+      "mode": "B",
+      "configVersion": "rag-v1-context4",
+      "promptVersion": "knowledge-v1",
+      "contextTopK": 4
+    }
+  }
+}

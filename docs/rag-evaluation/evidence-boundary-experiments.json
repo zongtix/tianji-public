@@ -1,0 +1,17 @@
+{
+  "version": "evidence-boundary-v3-20261025",
+  "datasetVersion": "points-v1-20261024",
+  "cases": ["points-03", "points-04"],
+  "qaCases": 6,
+  "status": "prepared_not_run_requires_new_external_authorization",
+  "acceptance": {
+    "points-03": "按已明确的学习条件计算5分，保留有效性限制，不声称查询账户，不追加其他积分类型假设。",
+    "points-04-without-chapter-2": "可说明已提供的签到/问答规则，但须明确跨类型关系缺少依据，不从未发现禁止推导可以。该边界通过不代表已完成原问题的完整回答。",
+    "points-04-with-chapter-2": "依据实际提供的按类型分别计额规则回答可以，并引用对应来源；不得一律拒答。"
+  },
+  "experiments": {
+    "boundary-control": {"mode":"B","configVersion":"rag-v1","promptVersion":"knowledge-v1","contextTopK":3},
+    "boundary": {"mode":"B","configVersion":"rag-v1","promptVersion":"knowledge-v3-evidence","contextTopK":3},
+    "boundary-context4": {"mode":"B","configVersion":"rag-v1-context4","promptVersion":"knowledge-v3-evidence","contextTopK":4}
+  }
+}

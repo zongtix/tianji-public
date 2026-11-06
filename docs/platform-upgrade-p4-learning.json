@@ -1,0 +1,58 @@
+[
+  {
+    "case": "learning flow login",
+    "passed": true
+  },
+  {
+    "case": "free course enrollment",
+    "passed": true
+  },
+  {
+    "case": "enrollment MQ creates learning lesson",
+    "passed": true
+  },
+  {
+    "case": "duplicate free enrollment rejected",
+    "passed": true
+  },
+  {
+    "case": "one lesson for user and course",
+    "passed": true
+  },
+  {
+    "case": "learning progress uses server catalogue duration",
+    "passed": true
+  },
+  {
+    "case": "duplicate progress submission",
+    "passed": true
+  },
+  {
+    "case": "completed section increments once",
+    "passed": true
+  },
+  {
+    "case": "one finished record",
+    "passed": true
+  },
+  {
+    "case": "one learning outbox message",
+    "passed": true
+  },
+  {
+    "case": "learning record query after commit",
+    "passed": true
+  },
+  {
+    "case": "other user login",
+    "passed": true
+  },
+  {
+    "case": "other user cannot submit lesson progress",
+    "passed": true
+  },
+  {
+    "case": "foreign submission cannot increment section",
+    "passed": true
+  }
+]

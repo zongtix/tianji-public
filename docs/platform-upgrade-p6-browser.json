@@ -1,0 +1,44 @@
+{
+  "url": "http://127.0.0.1:18101/#/assistant/index",
+  "turns": 3,
+  "stoppedHistory": true,
+  "scriptAssets": [
+    {
+      "path": "/assets/index.23e15fb1.js",
+      "sha256": "335da178529bd6f87fd618f3d1d23d194c42b9963942053986d3fba9d5f291d5",
+      "matches_build": true
+    },
+    {
+      "path": "/assets/index.5ffe6505.js",
+      "sha256": "157d2c6c1ef4e60944a9db903c2f2fc66665ea4bcdfd10721fc0c5b093d87f75",
+      "matches_build": true
+    },
+    {
+      "path": "/assets/index.a58a225f.js",
+      "sha256": "c2eecd73544cebba934b804e87b094e7ea439819aed7bc77418875e22815b380",
+      "matches_build": true
+    },
+    {
+      "path": "/assets/TableSwitchBar.17118360.js",
+      "sha256": "4f8144ef552479837525f4bcb3550bc2b1b7f39e1503afe4f9f978e349cefa3e",
+      "matches_build": true
+    },
+    {
+      "path": "/assets/ClassCards.ad51f47d.js",
+      "sha256": "48c6e4843c5b24202da077dfb46f42da716865a07f21b214f0dea6182f93c19d",
+      "matches_build": true
+    },
+    {
+      "path": "/assets/swiper-slide.70e7fce6.js",
+      "sha256": "59573db1926a415353c5cfd641780bd2824fdada2cfc66ecc389d8bc4ebad93c",
+      "matches_build": true
+    },
+    {
+      "path": "/assets/index.f00fdc4e.js",
+      "sha256": "dc3b2c9053c4f483e99353c9514a1ea9090040f2410fb3eb8f493772b80fe980",
+      "matches_build": true
+    }
+  ],
+  "usesDevServer": false,
+  "html_matches_release_manifest": true
+}

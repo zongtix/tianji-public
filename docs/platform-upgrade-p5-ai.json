@@ -1,0 +1,106 @@
+{
+  "checked_at": "2026-10-12T14:39:59.423183+00:00",
+  "provider": "DeepSeek",
+  "environment": "tianji-platform-upgrade-test-boot3",
+  "checks": [
+    {
+      "case": "anonymous AI rejected",
+      "passed": true
+    },
+    {
+      "case": "forged AI identity rejected",
+      "passed": true
+    },
+    {
+      "case": "AI fixture login",
+      "passed": true
+    },
+    {
+      "case": "create AI session",
+      "passed": true
+    },
+    {
+      "case": "turn 1 SSE headers",
+      "passed": true
+    },
+    {
+      "case": "turn 1 real model completion and recall",
+      "passed": true,
+      "delta_events": 7,
+      "answer_chars": 14,
+      "seconds": 1.84
+    },
+    {
+      "case": "turn 2 SSE headers",
+      "passed": true
+    },
+    {
+      "case": "turn 2 real model completion and recall",
+      "passed": true,
+      "delta_events": 7,
+      "answer_chars": 14,
+      "seconds": 1.56
+    },
+    {
+      "case": "read persistent AI history",
+      "passed": true
+    },
+    {
+      "case": "two ordered turns persisted",
+      "passed": true
+    },
+    {
+      "case": "list titled AI sessions",
+      "passed": true
+    },
+    {
+      "case": "session title reflects first question",
+      "passed": true
+    },
+    {
+      "case": "second user login",
+      "passed": true
+    },
+    {
+      "case": "foreign history rejected",
+      "passed": true
+    },
+    {
+      "case": "foreign deletion rejected",
+      "passed": true
+    },
+    {
+      "case": "foreign stop rejected",
+      "passed": true
+    },
+    {
+      "case": "foreign generation rejected",
+      "passed": true
+    },
+    {
+      "case": "stop live model generation",
+      "passed": true
+    },
+    {
+      "case": "stop produces immediate terminal event",
+      "passed": true,
+      "stop_seconds": 0.45
+    },
+    {
+      "case": "read stopped AI history",
+      "passed": true
+    },
+    {
+      "case": "partial answer persists after stop",
+      "passed": true
+    },
+    {
+      "case": "delete AI session and turns",
+      "passed": true
+    },
+    {
+      "case": "deleted session unavailable",
+      "passed": true
+    }
+  ]
+}

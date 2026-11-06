@@ -1,0 +1,17 @@
+spring:
+  cloud:
+    nacos:
+      server-addr: ${NACOS_SERVER_ADDR:127.0.0.1:8848} # nacos注册中心
+      discovery:
+        namespace: ${NACOS_NAMESPACE:tianji-local-boot3}
+        group: DEFAULT_GROUP
+        ip: ${SERVICE_IP:127.0.0.1}
+logging:
+  level:
+    com.tianji: debug
+tj:
+  xxl-job:
+    executor:
+      # 本地开发时使用服务器可访问的 Tailscale 地址，避免自动注册 WLAN 地址。
+      ip: 127.0.0.1
+      port: 10002

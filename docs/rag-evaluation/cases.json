@@ -1,0 +1,821 @@
+{
+  "datasetVersion": "points-v1-20261024",
+  "origin": "依据仓库已核实积分规则编写的业务案例，不声称来自真实用户日志；不含虚构课程事实。",
+  "source": "tj-aigc/src/main/resources/knowledge/tianji-points.md",
+  "contentHash": "b0be0d634823a1f33ab9a78208f5cc708e48c7235371d6a2e38c8921aa50a91d",
+  "index": "tj_aigc_knowledge_v4_1024",
+  "cases": [
+    {
+      "id": "points-01",
+      "split": "tuning",
+      "type": "direct",
+      "question": "一天课程学习积分上限是多少？",
+      "history": [],
+      "authorizedDocuments": [
+        "tianji-points-guide"
+      ],
+      "referenceEvidence": [
+        {
+          "documentId": "tianji-points-guide",
+          "contentHash": "b0be0d634823a1f33ab9a78208f5cc708e48c7235371d6a2e38c8921aa50a91d",
+          "chunkIndex": 2
+        }
+      ],
+      "expectedPoints": [
+        "单次10分",
+        "课程学习每日50分"
+      ],
+      "forbiddenFacts": [
+        "所有积分每天最多50分"
+      ],
+      "expectedOutcome": "answer"
+    },
+    {
+      "id": "points-02",
+      "split": "tuning",
+      "type": "synonym",
+      "question": "看课攒分一天能拿几分封顶？",
+      "history": [],
+      "authorizedDocuments": [
+        "tianji-points-guide"
+      ],
+      "referenceEvidence": [
+        {
+          "documentId": "tianji-points-guide",
+          "contentHash": "b0be0d634823a1f33ab9a78208f5cc708e48c7235371d6a2e38c8921aa50a91d",
+          "chunkIndex": 2
+        }
+      ],
+      "expectedPoints": [
+        "课程学习每日50分"
+      ],
+      "forbiddenFacts": [],
+      "expectedOutcome": "answer"
+    },
+    {
+      "id": "points-03",
+      "split": "tuning",
+      "type": "condition",
+      "question": "学习积分今天已有45分，再来一次10分事件会入账多少？",
+      "history": [],
+      "authorizedDocuments": [
+        "tianji-points-guide"
+      ],
+      "referenceEvidence": [
+        {
+          "documentId": "tianji-points-guide",
+          "contentHash": "b0be0d634823a1f33ab9a78208f5cc708e48c7235371d6a2e38c8921aa50a91d",
+          "chunkIndex": 2
+        }
+      ],
+      "expectedPoints": [
+        "只补5分",
+        "不超过50分"
+      ],
+      "forbiddenFacts": [
+        "再入账10分"
+      ],
+      "expectedOutcome": "answer"
+    },
+    {
+      "id": "points-04",
+      "split": "tuning",
+      "type": "negation",
+      "question": "学习已满50分，还能按规则获得签到和问答积分吗？",
+      "history": [],
+      "authorizedDocuments": [
+        "tianji-points-guide"
+      ],
+      "referenceEvidence": [
+        {
+          "documentId": "tianji-points-guide",
+          "contentHash": "b0be0d634823a1f33ab9a78208f5cc708e48c7235371d6a2e38c8921aa50a91d",
+          "chunkIndex": 2
+        },
+        {
+          "documentId": "tianji-points-guide",
+          "contentHash": "b0be0d634823a1f33ab9a78208f5cc708e48c7235371d6a2e38c8921aa50a91d",
+          "chunkIndex": 3
+        },
+        {
+          "documentId": "tianji-points-guide",
+          "contentHash": "b0be0d634823a1f33ab9a78208f5cc708e48c7235371d6a2e38c8921aa50a91d",
+          "chunkIndex": 4
+        }
+      ],
+      "expectedPoints": [
+        "按类型分别计算上限",
+        "其他类型仍按各自规则"
+      ],
+      "forbiddenFacts": [
+        "所有类型都不能再得分"
+      ],
+      "expectedOutcome": "answer"
+    },
+    {
+      "id": "points-05",
+      "split": "tuning",
+      "type": "direct",
+      "question": "有效课程问答一次加多少分，每天最多多少？",
+      "history": [],
+      "authorizedDocuments": [
+        "tianji-points-guide"
+      ],
+      "referenceEvidence": [
+        {
+          "documentId": "tianji-points-guide",
+          "contentHash": "b0be0d634823a1f33ab9a78208f5cc708e48c7235371d6a2e38c8921aa50a91d",
+          "chunkIndex": 3
+        }
+      ],
+      "expectedPoints": [
+        "一次5分",
+        "每天20分"
+      ],
+      "forbiddenFacts": [],
+      "expectedOutcome": "answer"
+    },
+    {
+      "id": "points-06",
+      "split": "tuning",
+      "type": "synonym",
+      "question": "写课程笔记的单次奖励和每日封顶是什么？",
+      "history": [],
+      "authorizedDocuments": [
+        "tianji-points-guide"
+      ],
+      "referenceEvidence": [
+        {
+          "documentId": "tianji-points-guide",
+          "contentHash": "b0be0d634823a1f33ab9a78208f5cc708e48c7235371d6a2e38c8921aa50a91d",
+          "chunkIndex": 3
+        }
+      ],
+      "expectedPoints": [
+        "一次3分",
+        "每天20分"
+      ],
+      "forbiddenFacts": [],
+      "expectedOutcome": "answer"
+    },
+    {
+      "id": "points-07",
+      "split": "tuning",
+      "type": "number",
+      "question": "笔记今天已有18分，又来了有效3分事件，实际入账多少？",
+      "history": [],
+      "authorizedDocuments": [
+        "tianji-points-guide"
+      ],
+      "referenceEvidence": [
+        {
+          "documentId": "tianji-points-guide",
+          "contentHash": "b0be0d634823a1f33ab9a78208f5cc708e48c7235371d6a2e38c8921aa50a91d",
+          "chunkIndex": 3
+        }
+      ],
+      "expectedPoints": [
+        "实际2分",
+        "累计20分"
+      ],
+      "forbiddenFacts": [
+        "实际3分"
+      ],
+      "expectedOutcome": "answer"
+    },
+    {
+      "id": "points-08",
+      "split": "tuning",
+      "type": "exception",
+      "question": "课程评价积分的每日上限为0，是否代表不能获得积分？",
+      "history": [],
+      "authorizedDocuments": [
+        "tianji-points-guide"
+      ],
+      "referenceEvidence": [
+        {
+          "documentId": "tianji-points-guide",
+          "contentHash": "b0be0d634823a1f33ab9a78208f5cc708e48c7235371d6a2e38c8921aa50a91d",
+          "chunkIndex": 3
+        }
+      ],
+      "expectedPoints": [
+        "0表示不设置统一每日上限",
+        "单次10分"
+      ],
+      "forbiddenFacts": [
+        "0表示不能得分"
+      ],
+      "expectedOutcome": "answer"
+    },
+    {
+      "id": "points-09",
+      "split": "validation",
+      "type": "negation",
+      "question": "评价积分不限统一日额度，是否可以重复提交同一条评价刷分？",
+      "history": [],
+      "authorizedDocuments": [
+        "tianji-points-guide"
+      ],
+      "referenceEvidence": [
+        {
+          "documentId": "tianji-points-guide",
+          "contentHash": "b0be0d634823a1f33ab9a78208f5cc708e48c7235371d6a2e38c8921aa50a91d",
+          "chunkIndex": 3
+        }
+      ],
+      "expectedPoints": [
+        "不能绕过业务校验或重复刷分"
+      ],
+      "forbiddenFacts": [
+        "可以无限重复刷分"
+      ],
+      "expectedOutcome": "answer"
+    },
+    {
+      "id": "points-10",
+      "split": "validation",
+      "type": "direct",
+      "question": "每天签到基础积分多少，同一天能成功两次吗？",
+      "history": [],
+      "authorizedDocuments": [
+        "tianji-points-guide"
+      ],
+      "referenceEvidence": [
+        {
+          "documentId": "tianji-points-guide",
+          "contentHash": "b0be0d634823a1f33ab9a78208f5cc708e48c7235371d6a2e38c8921aa50a91d",
+          "chunkIndex": 4
+        }
+      ],
+      "expectedPoints": [
+        "基础1分",
+        "同用户同日只成功一次"
+      ],
+      "forbiddenFacts": [
+        "同一天两次成功"
+      ],
+      "expectedOutcome": "answer"
+    },
+    {
+      "id": "points-11",
+      "split": "validation",
+      "type": "number",
+      "question": "连续签到第7天，当天总共拿多少积分？",
+      "history": [],
+      "authorizedDocuments": [
+        "tianji-points-guide"
+      ],
+      "referenceEvidence": [
+        {
+          "documentId": "tianji-points-guide",
+          "contentHash": "b0be0d634823a1f33ab9a78208f5cc708e48c7235371d6a2e38c8921aa50a91d",
+          "chunkIndex": 4
+        }
+      ],
+      "expectedPoints": [
+        "额外10分",
+        "基础1分",
+        "合计11分"
+      ],
+      "forbiddenFacts": [
+        "总共10分"
+      ],
+      "expectedOutcome": "answer"
+    },
+    {
+      "id": "points-12",
+      "split": "validation",
+      "type": "number",
+      "question": "连续签到第14天，当天一共多少分？",
+      "history": [],
+      "authorizedDocuments": [
+        "tianji-points-guide"
+      ],
+      "referenceEvidence": [
+        {
+          "documentId": "tianji-points-guide",
+          "contentHash": "b0be0d634823a1f33ab9a78208f5cc708e48c7235371d6a2e38c8921aa50a91d",
+          "chunkIndex": 4
+        }
+      ],
+      "expectedPoints": [
+        "额外20分",
+        "合计21分"
+      ],
+      "forbiddenFacts": [
+        "总共20分"
+      ],
+      "expectedOutcome": "answer"
+    },
+    {
+      "id": "points-13",
+      "split": "validation",
+      "type": "number",
+      "question": "连续签到第28天，当天一共多少分？",
+      "history": [],
+      "authorizedDocuments": [
+        "tianji-points-guide"
+      ],
+      "referenceEvidence": [
+        {
+          "documentId": "tianji-points-guide",
+          "contentHash": "b0be0d634823a1f33ab9a78208f5cc708e48c7235371d6a2e38c8921aa50a91d",
+          "chunkIndex": 4
+        }
+      ],
+      "expectedPoints": [
+        "额外40分",
+        "合计41分"
+      ],
+      "forbiddenFacts": [
+        "总共40分"
+      ],
+      "expectedOutcome": "answer"
+    },
+    {
+      "id": "points-14",
+      "split": "validation",
+      "type": "exception",
+      "question": "连续签到到第8天，是不是仍然每天额外奖励10分？",
+      "history": [],
+      "authorizedDocuments": [
+        "tianji-points-guide"
+      ],
+      "referenceEvidence": [
+        {
+          "documentId": "tianji-points-guide",
+          "contentHash": "b0be0d634823a1f33ab9a78208f5cc708e48c7235371d6a2e38c8921aa50a91d",
+          "chunkIndex": 4
+        }
+      ],
+      "expectedPoints": [
+        "不是第7天起每天额外奖励",
+        "只在恰好里程碑天数"
+      ],
+      "forbiddenFacts": [
+        "第8天额外10分"
+      ],
+      "expectedOutcome": "answer"
+    },
+    {
+      "id": "points-15",
+      "split": "validation",
+      "type": "exception",
+      "question": "连续签到第21天有没有已定义的额外奖励？",
+      "history": [],
+      "authorizedDocuments": [
+        "tianji-points-guide"
+      ],
+      "referenceEvidence": [
+        {
+          "documentId": "tianji-points-guide",
+          "contentHash": "b0be0d634823a1f33ab9a78208f5cc708e48c7235371d6a2e38c8921aa50a91d",
+          "chunkIndex": 4
+        }
+      ],
+      "expectedPoints": [
+        "当前代码未定义第21天额外奖励"
+      ],
+      "forbiddenFacts": [
+        "额外奖励30分"
+      ],
+      "expectedOutcome": "answer"
+    },
+    {
+      "id": "points-16",
+      "split": "validation",
+      "type": "condition",
+      "question": "上个月末连续签到，能带到本月累计连续天数吗？",
+      "history": [],
+      "authorizedDocuments": [
+        "tianji-points-guide"
+      ],
+      "referenceEvidence": [
+        {
+          "documentId": "tianji-points-guide",
+          "contentHash": "b0be0d634823a1f33ab9a78208f5cc708e48c7235371d6a2e38c8921aa50a91d",
+          "chunkIndex": 4
+        }
+      ],
+      "expectedPoints": [
+        "只统计本月",
+        "不跨月"
+      ],
+      "forbiddenFacts": [
+        "跨月累计"
+      ],
+      "expectedOutcome": "answer"
+    },
+    {
+      "id": "points-17",
+      "split": "validation",
+      "type": "number",
+      "question": "接口rewardPoints返回10，是否说明当天总积分就是10？",
+      "history": [],
+      "authorizedDocuments": [
+        "tianji-points-guide"
+      ],
+      "referenceEvidence": [
+        {
+          "documentId": "tianji-points-guide",
+          "contentHash": "b0be0d634823a1f33ab9a78208f5cc708e48c7235371d6a2e38c8921aa50a91d",
+          "chunkIndex": 4
+        }
+      ],
+      "expectedPoints": [
+        "字段只包含额外奖励",
+        "加基础分当天11分"
+      ],
+      "forbiddenFacts": [
+        "当天总共10分"
+      ],
+      "expectedOutcome": "answer"
+    },
+    {
+      "id": "points-18",
+      "split": "validation",
+      "type": "direct",
+      "question": "签到Bitmap第1天和第2天分别对应哪个bit？",
+      "history": [],
+      "authorizedDocuments": [
+        "tianji-points-guide"
+      ],
+      "referenceEvidence": [
+        {
+          "documentId": "tianji-points-guide",
+          "contentHash": "b0be0d634823a1f33ab9a78208f5cc708e48c7235371d6a2e38c8921aa50a91d",
+          "chunkIndex": 5
+        }
+      ],
+      "expectedPoints": [
+        "第一天bit0",
+        "第二天bit1"
+      ],
+      "forbiddenFacts": [],
+      "expectedOutcome": "answer"
+    },
+    {
+      "id": "points-19",
+      "split": "validation",
+      "type": "negation",
+      "question": "签到Bitmap是不是最终积分明细表？",
+      "history": [],
+      "authorizedDocuments": [
+        "tianji-points-guide"
+      ],
+      "referenceEvidence": [
+        {
+          "documentId": "tianji-points-guide",
+          "contentHash": "b0be0d634823a1f33ab9a78208f5cc708e48c7235371d6a2e38c8921aa50a91d",
+          "chunkIndex": 5
+        },
+        {
+          "documentId": "tianji-points-guide",
+          "contentHash": "b0be0d634823a1f33ab9a78208f5cc708e48c7235371d6a2e38c8921aa50a91d",
+          "chunkIndex": 6
+        }
+      ],
+      "expectedPoints": [
+        "不是最终积分明细表",
+        "points_record是最终积分明细"
+      ],
+      "forbiddenFacts": [
+        "Bitmap就是最终明细"
+      ],
+      "expectedOutcome": "answer"
+    },
+    {
+      "id": "points-20",
+      "split": "validation",
+      "type": "condition",
+      "question": "签到消息数据库已提交但Redis写失败，能删业务键重新签到领分吗？",
+      "history": [],
+      "authorizedDocuments": [
+        "tianji-points-guide"
+      ],
+      "referenceEvidence": [
+        {
+          "documentId": "tianji-points-guide",
+          "contentHash": "b0be0d634823a1f33ab9a78208f5cc708e48c7235371d6a2e38c8921aa50a91d",
+          "chunkIndex": 5
+        }
+      ],
+      "expectedPoints": [
+        "签到已经受理",
+        "不能删已提交业务键",
+        "后续按消息日期恢复"
+      ],
+      "forbiddenFacts": [
+        "删键重新领分"
+      ],
+      "expectedOutcome": "answer"
+    },
+    {
+      "id": "points-21",
+      "split": "validation",
+      "type": "direct",
+      "question": "签到用什么业务键防止并发重复受理？",
+      "history": [],
+      "authorizedDocuments": [
+        "tianji-points-guide"
+      ],
+      "referenceEvidence": [
+        {
+          "documentId": "tianji-points-guide",
+          "contentHash": "b0be0d634823a1f33ab9a78208f5cc708e48c7235371d6a2e38c8921aa50a91d",
+          "chunkIndex": 5
+        }
+      ],
+      "expectedPoints": [
+        "sign:用户ID:日期",
+        "数据库唯一约束"
+      ],
+      "forbiddenFacts": [],
+      "expectedOutcome": "answer"
+    },
+    {
+      "id": "points-22",
+      "split": "validation",
+      "type": "synonym",
+      "question": "回答已经保存，积分页面为什么暂时没增加？",
+      "history": [],
+      "authorizedDocuments": [
+        "tianji-points-guide"
+      ],
+      "referenceEvidence": [
+        {
+          "documentId": "tianji-points-guide",
+          "contentHash": "b0be0d634823a1f33ab9a78208f5cc708e48c7235371d6a2e38c8921aa50a91d",
+          "chunkIndex": 6
+        }
+      ],
+      "expectedPoints": [
+        "消息异步处理",
+        "业务成功不等于消费入账完成"
+      ],
+      "forbiddenFacts": [
+        "保证立即到账"
+      ],
+      "expectedOutcome": "answer"
+    },
+    {
+      "id": "points-23",
+      "split": "validation",
+      "type": "negation",
+      "question": "points_message.sent=1能证明积分已经到账吗？",
+      "history": [],
+      "authorizedDocuments": [
+        "tianji-points-guide"
+      ],
+      "referenceEvidence": [
+        {
+          "documentId": "tianji-points-guide",
+          "contentHash": "b0be0d634823a1f33ab9a78208f5cc708e48c7235371d6a2e38c8921aa50a91d",
+          "chunkIndex": 6
+        }
+      ],
+      "expectedPoints": [
+        "只代表Broker确认且没有不可路由退回",
+        "不代表points_record已插入"
+      ],
+      "forbiddenFacts": [
+        "sent=1就是到账"
+      ],
+      "expectedOutcome": "answer"
+    },
+    {
+      "id": "points-24",
+      "split": "validation",
+      "type": "direct",
+      "question": "points_message和points_record分别记录什么？",
+      "history": [],
+      "authorizedDocuments": [
+        "tianji-points-guide"
+      ],
+      "referenceEvidence": [
+        {
+          "documentId": "tianji-points-guide",
+          "contentHash": "b0be0d634823a1f33ab9a78208f5cc708e48c7235371d6a2e38c8921aa50a91d",
+          "chunkIndex": 6
+        }
+      ],
+      "expectedPoints": [
+        "待发送积分消息",
+        "最终积分明细"
+      ],
+      "forbiddenFacts": [],
+      "expectedOutcome": "answer"
+    },
+    {
+      "id": "points-25",
+      "split": "validation",
+      "type": "exception",
+      "question": "发送确认超时或Broker NACK时，消息sent会如何处理？",
+      "history": [],
+      "authorizedDocuments": [
+        "tianji-points-guide"
+      ],
+      "referenceEvidence": [
+        {
+          "documentId": "tianji-points-guide",
+          "contentHash": "b0be0d634823a1f33ab9a78208f5cc708e48c7235371d6a2e38c8921aa50a91d",
+          "chunkIndex": 7
+        }
+      ],
+      "expectedPoints": [
+        "保持sent=0",
+        "后续可继续投递"
+      ],
+      "forbiddenFacts": [
+        "直接标为已到账"
+      ],
+      "expectedOutcome": "answer"
+    },
+    {
+      "id": "points-26",
+      "split": "validation",
+      "type": "negation",
+      "question": "消息重复投递会不会让同一个业务动作重复加分？",
+      "history": [],
+      "authorizedDocuments": [
+        "tianji-points-guide"
+      ],
+      "referenceEvidence": [
+        {
+          "documentId": "tianji-points-guide",
+          "contentHash": "b0be0d634823a1f33ab9a78208f5cc708e48c7235371d6a2e38c8921aa50a91d",
+          "chunkIndex": 3
+        },
+        {
+          "documentId": "tianji-points-guide",
+          "contentHash": "b0be0d634823a1f33ab9a78208f5cc708e48c7235371d6a2e38c8921aa50a91d",
+          "chunkIndex": 7
+        }
+      ],
+      "expectedPoints": [
+        "消费端稳定业务键去重",
+        "允许重复传输"
+      ],
+      "forbiddenFacts": [
+        "消息传输绝不重复"
+      ],
+      "expectedOutcome": "answer"
+    },
+    {
+      "id": "points-27",
+      "split": "validation",
+      "type": "condition",
+      "question": "积分消费者等用户锁超时，应正常返回确认消息还是失败重试？",
+      "history": [],
+      "authorizedDocuments": [
+        "tianji-points-guide"
+      ],
+      "referenceEvidence": [
+        {
+          "documentId": "tianji-points-guide",
+          "contentHash": "b0be0d634823a1f33ab9a78208f5cc708e48c7235371d6a2e38c8921aa50a91d",
+          "chunkIndex": 7
+        }
+      ],
+      "expectedPoints": [
+        "应抛出异常失败重试",
+        "不能正常确认尚未入账消息"
+      ],
+      "forbiddenFacts": [
+        "正常确认"
+      ],
+      "expectedOutcome": "answer"
+    },
+    {
+      "id": "points-28",
+      "split": "validation",
+      "type": "multi_evidence",
+      "question": "请对比学习、问答、笔记的单次积分与各自每日上限，并说明是否合并限制。",
+      "history": [],
+      "authorizedDocuments": [
+        "tianji-points-guide"
+      ],
+      "referenceEvidence": [
+        {
+          "documentId": "tianji-points-guide",
+          "contentHash": "b0be0d634823a1f33ab9a78208f5cc708e48c7235371d6a2e38c8921aa50a91d",
+          "chunkIndex": 2
+        },
+        {
+          "documentId": "tianji-points-guide",
+          "contentHash": "b0be0d634823a1f33ab9a78208f5cc708e48c7235371d6a2e38c8921aa50a91d",
+          "chunkIndex": 3
+        }
+      ],
+      "expectedPoints": [
+        "学习10/50",
+        "问答5/20",
+        "笔记3/20",
+        "按类型分开"
+      ],
+      "forbiddenFacts": [
+        "全部合计上限50"
+      ],
+      "expectedOutcome": "answer"
+    },
+    {
+      "id": "points-29",
+      "split": "validation",
+      "type": "no_answer",
+      "question": "退课退款需要几个工作日到账？",
+      "history": [],
+      "authorizedDocuments": [
+        "tianji-points-guide"
+      ],
+      "referenceEvidence": [],
+      "expectedPoints": [
+        "资料不足",
+        "不能编造退款时效"
+      ],
+      "forbiddenFacts": [
+        "3个工作日",
+        "7个工作日"
+      ],
+      "expectedOutcome": "insufficient_evidence"
+    },
+    {
+      "id": "points-30",
+      "split": "validation",
+      "type": "no_answer",
+      "question": "购买课程的真实现价和有效期是多少？",
+      "history": [],
+      "authorizedDocuments": [
+        "tianji-points-guide"
+      ],
+      "referenceEvidence": [],
+      "expectedPoints": [
+        "当前积分知识库无法确认",
+        "不能编造价格有效期"
+      ],
+      "forbiddenFacts": [
+        "售价199元"
+      ],
+      "expectedOutcome": "insufficient_evidence"
+    },
+    {
+      "id": "points-31",
+      "split": "validation",
+      "type": "followup",
+      "question": "那第14天当天总共呢？",
+      "history": [
+        {
+          "role": "USER",
+          "text": "连续签到第7天当天总积分多少？"
+        },
+        {
+          "role": "ASSISTANT",
+          "text": "基础1分加额外10分，总共11分。"
+        }
+      ],
+      "authorizedDocuments": [
+        "tianji-points-guide"
+      ],
+      "referenceEvidence": [
+        {
+          "documentId": "tianji-points-guide",
+          "contentHash": "b0be0d634823a1f33ab9a78208f5cc708e48c7235371d6a2e38c8921aa50a91d",
+          "chunkIndex": 4
+        }
+      ],
+      "expectedPoints": [
+        "合计21分",
+        "保留签到当天总积分主题"
+      ],
+      "forbiddenFacts": [
+        "总共20分"
+      ],
+      "expectedOutcome": "answer"
+    },
+    {
+      "id": "points-32",
+      "split": "validation",
+      "type": "clarify",
+      "question": "那它呢？",
+      "history": [
+        {
+          "role": "USER",
+          "text": "学习和签到的规则有什么不同？"
+        },
+        {
+          "role": "ASSISTANT",
+          "text": "请说明希望了解哪个方面。"
+        }
+      ],
+      "authorizedDocuments": [
+        "tianji-points-guide"
+      ],
+      "referenceEvidence": [],
+      "expectedPoints": [
+        "指代不明需要澄清"
+      ],
+      "forbiddenFacts": [],
+      "expectedOutcome": "clarify"
+    }
+  ]
+}

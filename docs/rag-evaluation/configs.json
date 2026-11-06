@@ -1,0 +1,17 @@
+{
+  "configVersion": "rag-v1",
+  "baseline": { "topK": 3, "similarityThreshold": 0.6 },
+  "aprime": { "topK": 6, "similarityThreshold": 0.45 },
+  "frozenHybridBase": "A",
+  "hybrid": { "keywordTopK": 10, "rankConstant": 60, "fusionLimit": 12, "contextTopK": 3 },
+  "rerank": { "enabled": false, "model": "unverified", "inputLimit": 12, "outputLimit": 6, "timeoutSeconds": 5 },
+  "context": { "windowTokens": 16384, "outputReserve": 2048, "safetyMargin": 512, "estimator": "cl100k_base_estimate" },
+  "modes": {
+    "A": "原始向量参数及片段拼接，保留公共权限、生命周期与超限保护",
+    "APRIME": "只调整向量 topK 和阈值",
+    "B": "冻结 A 加 BM25 与 RRF；未证明 A′ 优于 A 前不改继承",
+    "C": "B 加真实专用 rerank；回退不计为 C 正常实测",
+    "D": "C 加完整片段预算选择；回退不计为 D 正常实测",
+    "B_CONTEXT": "B 加上下文处理的补充实验，不冒充 D"
+  }
+}

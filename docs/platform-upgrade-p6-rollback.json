@@ -1,0 +1,114 @@
+{
+  "rollback": [
+    {
+      "case": "anonymous user info",
+      "passed": true,
+      "http": 401,
+      "code": null
+    },
+    {
+      "case": "invalid JWT",
+      "passed": true,
+      "http": 401,
+      "code": null
+    },
+    {
+      "case": "forged identity header",
+      "passed": true,
+      "http": 401,
+      "code": null
+    },
+    {
+      "case": "wrong password",
+      "passed": true,
+      "http": 200,
+      "code": 400
+    },
+    {
+      "case": "login and HttpOnly refresh cookie",
+      "passed": true,
+      "http": 200,
+      "code": 200
+    },
+    {
+      "case": "authenticated user info",
+      "passed": true,
+      "http": 200,
+      "code": 200
+    },
+    {
+      "case": "refresh token",
+      "passed": true,
+      "http": 200,
+      "code": 200
+    },
+    {
+      "case": "logout",
+      "passed": true,
+      "http": 200,
+      "code": 200
+    },
+    {
+      "case": "logged-out refresh rejected",
+      "passed": true,
+      "http": 200,
+      "code": 400
+    }
+  ],
+  "restored": [
+    {
+      "case": "anonymous user info",
+      "passed": true,
+      "http": 401,
+      "code": null
+    },
+    {
+      "case": "invalid JWT",
+      "passed": true,
+      "http": 401,
+      "code": null
+    },
+    {
+      "case": "forged identity header",
+      "passed": true,
+      "http": 401,
+      "code": null
+    },
+    {
+      "case": "wrong password",
+      "passed": true,
+      "http": 200,
+      "code": 400
+    },
+    {
+      "case": "login and HttpOnly refresh cookie",
+      "passed": true,
+      "http": 200,
+      "code": 200
+    },
+    {
+      "case": "authenticated user info",
+      "passed": true,
+      "http": 200,
+      "code": 200
+    },
+    {
+      "case": "refresh token",
+      "passed": true,
+      "http": 200,
+      "code": 200
+    },
+    {
+      "case": "logout",
+      "passed": true,
+      "http": 200,
+      "code": 200
+    },
+    {
+      "case": "logged-out refresh rejected",
+      "passed": true,
+      "http": 200,
+      "code": 400
+    }
+  ]
+}

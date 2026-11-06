@@ -1,0 +1,333 @@
+{
+  "datasetVersion": "coupon-draft-20261030",
+  "status": "draft",
+  "origin": "AI 依据仓库规则设计的优惠券问答草稿，不是真实用户问题，也不来自用户日志。",
+  "reviewStatus": "本文件保留章节级草稿格式；派生可执行数据集已完成真实对照与 AI 来源审阅，见 points-coupons-2026-10-30.md。独立人工复核待完成，不是 holdout 或人工验收数据。",
+  "source": "tj-aigc/src/main/resources/knowledge/tianji-coupons.md",
+  "evidenceMode": "section_reference",
+  "indexStatus": "派生数据集用生产切分器映射 documentId、内容哈希和片段号，并写入隔离评测索引；本草稿保留章节引用，正式聊天的发布配置未改变。",
+  "cases": [
+    {
+      "id": "coupon-01",
+      "split": "draft",
+      "type": "direct",
+      "question": "天机学堂的优惠券支持哪几种折扣类型？",
+      "history": [],
+      "authorizedDocuments": [
+        "tj-aigc/src/main/resources/knowledge/tianji-coupons.md"
+      ],
+      "referenceEvidence": [
+        {
+          "sourceFile": "tj-aigc/src/main/resources/knowledge/tianji-coupons.md",
+          "section": "优惠券类型与金额单位"
+        }
+      ],
+      "expectedPoints": [
+        "每满减",
+        "折扣",
+        "无门槛",
+        "满减"
+      ],
+      "forbiddenFacts": [
+        "只有满减一种"
+      ],
+      "expectedOutcome": "answer",
+      "designNote": "AI 设计：直接核对折扣类型枚举。"
+    },
+    {
+      "id": "coupon-02",
+      "split": "draft",
+      "type": "condition",
+      "question": "创建折扣券时，把折扣值配置成100能通过参数校验吗？",
+      "history": [],
+      "authorizedDocuments": [
+        "tj-aigc/src/main/resources/knowledge/tianji-coupons.md"
+      ],
+      "referenceEvidence": [
+        {
+          "sourceFile": "tj-aigc/src/main/resources/knowledge/tianji-coupons.md",
+          "section": "优惠券类型与金额单位"
+        }
+      ],
+      "expectedPoints": [
+        "不能",
+        "折扣券的折扣值必须在1~99之间"
+      ],
+      "forbiddenFacts": [
+        "100表示10折，可以正常使用"
+      ],
+      "expectedOutcome": "answer",
+      "designNote": "AI 设计：考查保存配置时的折扣值上限。"
+    },
+    {
+      "id": "coupon-03",
+      "split": "draft",
+      "type": "negation",
+      "question": "无门槛优惠券可以把使用门槛配置成10元吗？",
+      "history": [],
+      "authorizedDocuments": [
+        "tj-aigc/src/main/resources/knowledge/tianji-coupons.md"
+      ],
+      "referenceEvidence": [
+        {
+          "sourceFile": "tj-aigc/src/main/resources/knowledge/tianji-coupons.md",
+          "section": "优惠券类型与金额单位"
+        }
+      ],
+      "expectedPoints": [
+        "不可以",
+        "无门槛券的thresholdAmount必须为0"
+      ],
+      "forbiddenFacts": [
+        "可以，10元也算无门槛"
+      ],
+      "expectedOutcome": "answer",
+      "designNote": "AI 设计：否定式提问，考查无门槛券门槛必须为0。"
+    },
+    {
+      "id": "coupon-04",
+      "split": "draft",
+      "type": "negation",
+      "question": "公开优惠券列表中某张券的available为true，说明我已经领取过这张券吗？",
+      "history": [],
+      "authorizedDocuments": [
+        "tj-aigc/src/main/resources/knowledge/tianji-coupons.md"
+      ],
+      "referenceEvidence": [
+        {
+          "sourceFile": "tj-aigc/src/main/resources/knowledge/tianji-coupons.md",
+          "section": "公开优惠券列表"
+        }
+      ],
+      "expectedPoints": [
+        "不是",
+        "available表示库存未领完且本人累计领取数未达到每人限领上限",
+        "received才表示当前持有未使用且在有效期内的券"
+      ],
+      "forbiddenFacts": [
+        "available为true表示已经领取过"
+      ],
+      "expectedOutcome": "answer",
+      "designNote": "AI 设计：否定式提问，区分available与received。"
+    },
+    {
+      "id": "coupon-05",
+      "split": "draft",
+      "type": "condition",
+      "question": "每人限领1张的公开券，我已经领过1张并且已经使用，还能再领吗？",
+      "history": [],
+      "authorizedDocuments": [
+        "tj-aigc/src/main/resources/knowledge/tianji-coupons.md"
+      ],
+      "referenceEvidence": [
+        {
+          "sourceFile": "tj-aigc/src/main/resources/knowledge/tianji-coupons.md",
+          "section": "手动领取条件与限领"
+        }
+      ],
+      "expectedPoints": [
+        "不能",
+        "已使用和已失效的券也计入累计领取数量"
+      ],
+      "forbiddenFacts": [
+        "能，因为已使用的券不占领取名额"
+      ],
+      "expectedOutcome": "answer",
+      "designNote": "AI 设计：条件场景，考查累计限领是否包含已使用券。"
+    },
+    {
+      "id": "coupon-06",
+      "split": "draft",
+      "type": "condition",
+      "question": "一张券配置为领取后7天有效，用户成功领取后有效期从哪里开始计算？",
+      "history": [],
+      "authorizedDocuments": [
+        "tj-aigc/src/main/resources/knowledge/tianji-coupons.md"
+      ],
+      "referenceEvidence": [
+        {
+          "sourceFile": "tj-aigc/src/main/resources/knowledge/tianji-coupons.md",
+          "section": "有效期"
+        }
+      ],
+      "expectedPoints": [
+        "从领取成功时刻起算7天",
+        "不是从活动发放结束时间开始计算"
+      ],
+      "forbiddenFacts": [
+        "从活动开始时间起算",
+        "统一在活动结束日到期"
+      ],
+      "expectedOutcome": "answer",
+      "designNote": "AI 设计：条件场景，考查相对有效期与固定有效期的区别。"
+    },
+    {
+      "id": "coupon-07",
+      "split": "draft",
+      "type": "negation",
+      "question": "我的优惠券“未使用”列表会显示已经过了有效期、但状态仍为未使用的券吗？",
+      "history": [],
+      "authorizedDocuments": [
+        "tj-aigc/src/main/resources/knowledge/tianji-coupons.md"
+      ],
+      "referenceEvidence": [
+        {
+          "sourceFile": "tj-aigc/src/main/resources/knowledge/tianji-coupons.md",
+          "section": "我的优惠券列表"
+        }
+      ],
+      "expectedPoints": [
+        "不会",
+        "未使用列表只显示有效期结束时间晚于当前时间的券",
+        "过期但仍为未使用状态的券会出现在已失效列表并显示为已失效"
+      ],
+      "forbiddenFacts": [
+        "会显示在未使用列表"
+      ],
+      "expectedOutcome": "answer",
+      "designNote": "AI 设计：否定式提问，考查列表过滤与展示状态转换。"
+    },
+    {
+      "id": "coupon-08",
+      "split": "draft",
+      "type": "exception",
+      "question": "兑换码提示“兑换码已兑换”后，还能再用同一个码兑换吗？",
+      "history": [],
+      "authorizedDocuments": [
+        "tj-aigc/src/main/resources/knowledge/tianji-coupons.md"
+      ],
+      "referenceEvidence": [
+        {
+          "sourceFile": "tj-aigc/src/main/resources/knowledge/tianji-coupons.md",
+          "section": "兑换码"
+        }
+      ],
+      "expectedPoints": [
+        "不能",
+        "一个兑换码只能成功兑换一次"
+      ],
+      "forbiddenFacts": [
+        "可以重复兑换"
+      ],
+      "expectedOutcome": "answer",
+      "designNote": "AI 设计：异常场景，考查兑换码一次性使用。"
+    },
+    {
+      "id": "coupon-09",
+      "split": "draft",
+      "type": "condition",
+      "question": "通过兑换码兑换优惠券时，还需要满足发放中状态、发放时间、库存和每人限领条件吗？如果发券失败，兑换码会被消耗吗？",
+      "history": [],
+      "authorizedDocuments": [
+        "tj-aigc/src/main/resources/knowledge/tianji-coupons.md"
+      ],
+      "referenceEvidence": [
+        {
+          "sourceFile": "tj-aigc/src/main/resources/knowledge/tianji-coupons.md",
+          "section": "兑换码"
+        }
+      ],
+      "expectedPoints": [
+        "需要",
+        "兑换发券仍会检查发放中状态、发放窗口、库存和每人限领",
+        "发券失败会回滚兑换码核销，不消耗兑换码"
+      ],
+      "forbiddenFacts": [
+        "兑换码可以绕过库存和限领限制"
+      ],
+      "expectedOutcome": "answer",
+      "designNote": "AI 设计：条件场景，考查兑换路径与领取路径共用发券校验。"
+    },
+    {
+      "id": "coupon-10",
+      "split": "draft",
+      "type": "no_answer",
+      "designTags": ["cross_domain"],
+      "question": "我在购买课程结算时使用一张满减券，券的门槛金额是按课程原价还是实付金额判断？",
+      "history": [],
+      "authorizedDocuments": [
+        "tj-aigc/src/main/resources/knowledge/tianji-coupons.md"
+      ],
+      "referenceEvidence": [
+        {
+          "sourceFile": "tj-aigc/src/main/resources/knowledge/tianji-coupons.md",
+          "section": "优惠券类型与金额单位"
+        },
+        {
+          "sourceFile": "tj-aigc/src/main/resources/knowledge/tianji-coupons.md",
+          "section": "本文边界"
+        }
+      ],
+      "expectedPoints": [
+        "本文只说明thresholdAmount是最低消费金额且单位为分",
+        "本文没有说明按课程原价还是实付金额判断"
+      ],
+      "forbiddenFacts": [
+        "按课程原价判断",
+        "按实付金额判断"
+      ],
+      "expectedOutcome": "insufficient_evidence",
+      "designNote": "AI 设计：超出资料范围，混入课程订单结算，资料边界只到门槛字段语义。"
+    },
+    {
+      "id": "coupon-11",
+      "split": "draft",
+      "type": "no_answer",
+      "question": "使用优惠券下单后申请退款，优惠券会自动退回吗？",
+      "history": [],
+      "authorizedDocuments": [
+        "tj-aigc/src/main/resources/knowledge/tianji-coupons.md"
+      ],
+      "referenceEvidence": [
+        {
+          "sourceFile": "tj-aigc/src/main/resources/knowledge/tianji-coupons.md",
+          "section": "本文边界"
+        }
+      ],
+      "expectedPoints": [
+        "本文没有说明退款后优惠券是否退回",
+        "不能据此推断会自动退回或不退回"
+      ],
+      "forbiddenFacts": [
+        "会自动退回",
+        "不会退回"
+      ],
+      "expectedOutcome": "insufficient_evidence",
+      "designNote": "AI 设计：无答案，考查退款与优惠券关系的资料边界。"
+    },
+    {
+      "id": "coupon-12",
+      "split": "draft",
+      "type": "no_answer",
+      "question": "签到积分达到每日上限后，会影响我领取优惠券的资格吗？",
+      "history": [],
+      "authorizedDocuments": [
+        "tj-aigc/src/main/resources/knowledge/tianji-coupons.md"
+      ],
+      "referenceEvidence": [
+        {
+          "sourceFile": "tj-aigc/src/main/resources/knowledge/tianji-coupons.md",
+          "section": "手动领取条件与限领"
+        },
+        {
+          "sourceFile": "tj-aigc/src/main/resources/knowledge/tianji-coupons.md",
+          "section": "本文边界"
+        }
+      ],
+      "expectedPoints": [
+        "本文没有说明积分会影响领券资格",
+        "本文列出的领券条件没有说明积分与领券资格的联动，不能据此作出肯定或否定结论"
+      ],
+      "forbiddenFacts": [
+        "积分达到上限会失去领券资格",
+        "积分越多越容易领券",
+        "签到积分不会影响领券资格"
+      ],
+      "expectedOutcome": "insufficient_evidence",
+      "designTags": [
+        "cross_domain"
+      ],
+      "designNote": "AI 设计：超出资料范围，混入签到积分，资料未说明积分与领券资格的关系。"
+    }
+  ]
+}

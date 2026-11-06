@@ -1,0 +1,20 @@
+{
+  "version": "answer-focus-v4-20261026",
+  "datasetVersion": "points-v1-20261024",
+  "note": "两组冻结C模式及原向量3/0.6、BM25/RRF、专用rerank、最终3片段和系统提示，只改变检索回答模板。保留v1完整文本，仅在候选末尾增加回答聚焦约束，不复用v2/v3。",
+  "only": ["points-03", "points-04", "points-20", "points-25", "points-28", "points-29"],
+  "experiments": {
+    "focus-control": {
+      "mode": "C",
+      "configVersion": "rag-v1",
+      "promptVersion": "knowledge-v1",
+      "contextTopK": 3
+    },
+    "focus": {
+      "mode": "C",
+      "configVersion": "rag-v1",
+      "promptVersion": "knowledge-v4-focused",
+      "contextTopK": 3
+    }
+  }
+}

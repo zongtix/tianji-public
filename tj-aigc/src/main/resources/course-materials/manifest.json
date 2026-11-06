@@ -1,0 +1,82 @@
+{
+  "version": "demo-v1",
+  "materials": [
+    {
+      "materialId": "redis-hotspot-faq-01",
+      "courseId": "910000000000010005",
+      "courseName": "【AI演示】Redis 缓存与热点治理",
+      "title": "缓存击穿与互斥锁 FAQ",
+      "sourceFile": "redis-hotspot-faq-01.md",
+      "access": "PUBLIC_DEMO",
+      "publishStatus": "PUBLISHED",
+      "origin": "DeepSeek 依据公开的 Redis 缓存通识原创编写，仅用于天机学堂 AI 演示，不冒充真实售卖课程讲义，不含真实用户内容。",
+      "verifiedAt": "2026-10-31"
+    },
+    {
+      "materialId": "redis-penetration-faq-02",
+      "courseId": "910000000000010005",
+      "courseName": "【AI演示】Redis 缓存与热点治理",
+      "title": "缓存穿透与空值缓存 FAQ",
+      "sourceFile": "redis-penetration-faq-02.md",
+      "access": "PUBLIC_DEMO",
+      "publishStatus": "PUBLISHED",
+      "origin": "DeepSeek 依据公开的 Redis 缓存通识原创编写，仅用于天机学堂 AI 演示，不冒充真实售卖课程讲义，不含真实用户内容。",
+      "verifiedAt": "2026-10-31"
+    },
+    {
+      "materialId": "redis-cache-aside-03",
+      "courseId": "910000000000010005",
+      "courseName": "【AI演示】Redis 缓存与热点治理",
+      "title": "缓存旁路模式与数据库一致性",
+      "sourceFile": "redis-cache-aside-03.md",
+      "access": "PUBLIC_DEMO",
+      "publishStatus": "PUBLISHED",
+      "origin": "DeepSeek 依据公开的 Redis 缓存通识原创编写，仅用于天机学堂 AI 演示，不冒充真实售卖课程讲义，不含真实用户内容。",
+      "verifiedAt": "2026-10-31"
+    },
+    {
+      "materialId": "redis-hotspot-key-04",
+      "courseId": "910000000000010005",
+      "courseName": "【AI演示】Redis 缓存与热点治理",
+      "title": "热点 Key 的识别与治理",
+      "sourceFile": "redis-hotspot-key-04.md",
+      "access": "PUBLIC_DEMO",
+      "publishStatus": "PUBLISHED",
+      "origin": "DeepSeek 依据公开的 Redis 缓存通识原创编写，仅用于天机学堂 AI 演示，不冒充真实售卖课程讲义，不含真实用户内容。",
+      "verifiedAt": "2026-10-31"
+    },
+    {
+      "materialId": "redis-distributed-lock-05",
+      "courseId": "910000000000010005",
+      "courseName": "【AI演示】Redis 缓存与热点治理",
+      "title": "分布式锁的适用边界",
+      "sourceFile": "redis-distributed-lock-05.md",
+      "access": "PUBLIC_DEMO",
+      "publishStatus": "PUBLISHED",
+      "origin": "DeepSeek 依据公开的 Redis 缓存通识原创编写，仅用于天机学堂 AI 演示，不冒充真实售卖课程讲义，不含真实用户内容。",
+      "verifiedAt": "2026-10-31"
+    },
+    {
+      "materialId": "mysql-index-faq-01",
+      "courseId": "910000000000010004",
+      "courseName": "【AI演示】MySQL 索引与事务优化",
+      "title": "MySQL 索引失效与执行计划 FAQ",
+      "sourceFile": "mysql-index-faq-01.md",
+      "access": "PUBLIC_DEMO",
+      "publishStatus": "PUBLISHED",
+      "origin": "DeepSeek 依据公开的 MySQL/InnoDB 通识原创编写，仅用于天机学堂 AI 演示与跨课程隔离测试，不冒充真实售卖课程讲义。",
+      "verifiedAt": "2026-10-31"
+    },
+    {
+      "materialId": "mysql-transaction-faq-02",
+      "courseId": "910000000000010004",
+      "courseName": "【AI演示】MySQL 索引与事务优化",
+      "title": "MySQL 事务隔离与锁等待 FAQ",
+      "sourceFile": "mysql-transaction-faq-02.md",
+      "access": "PUBLIC_DEMO",
+      "publishStatus": "PUBLISHED",
+      "origin": "DeepSeek 依据公开的 MySQL/InnoDB 通识原创编写，仅用于天机学堂 AI 演示与跨课程隔离测试，不冒充真实售卖课程讲义。",
+      "verifiedAt": "2026-10-31"
+    }
+  ]
+}

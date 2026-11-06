@@ -1,0 +1,20 @@
+{
+  "version": "answer-precision-v5-20261026",
+  "datasetVersion": "points-v1-20261024",
+  "note": "保持C模式、原向量3/0.6、BM25/RRF、专用重排及最终3片段，原版v1与精确候选v5仅改变回答模板；4题各一次，共8次，不覆盖此前v4结果。",
+  "only": ["points-04", "points-20", "points-25", "points-29"],
+  "experiments": {
+    "precision-control": {
+      "mode": "C",
+      "configVersion": "rag-v1",
+      "promptVersion": "knowledge-v1",
+      "contextTopK": 3
+    },
+    "precision": {
+      "mode": "C",
+      "configVersion": "rag-v1",
+      "promptVersion": "knowledge-v5-precise",
+      "contextTopK": 3
+    }
+  }
+}

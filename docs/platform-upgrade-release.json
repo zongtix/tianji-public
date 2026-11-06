@@ -1,0 +1,393 @@
+{
+  "recorded_at": "2026-10-12T15:03:15.150843+00:00",
+  "backend_commit": "65a4beb839f1f9db4361ed1a3bf1e7538920a445",
+  "frontend_commit": "974f28cfe79dd0ae4bf089c92a6cd563b2e96336",
+  "java": "17",
+  "spring_boot": "3.5.16",
+  "spring_cloud": "2025.0.3",
+  "spring_cloud_alibaba": "2025.0.0.0",
+  "spring_ai": "1.1.2",
+  "ai_bytecode_major": 61,
+  "backend_artifacts": [
+    {
+      "path": "tj-aigc/target/tj-aigc.jar",
+      "bytes": 70277027,
+      "sha256": "c73dc4eb1509fc36571a375cf4d86eff7bc9185f0bed2f1873aa315661c14250"
+    },
+    {
+      "path": "tj-api/target/tj-api-1.0.0.jar",
+      "bytes": 89993,
+      "sha256": "bcae7f626c3cbcf7f785a66d37ecf8b39bceaa7c0752cd56d0fc3d8bbff10f8c"
+    },
+    {
+      "path": "tj-auth/tj-auth-common/target/tj-auth-common-1.0.0.jar",
+      "bytes": 6403,
+      "sha256": "333676da2135c95327b6ee0f216b9f9d0b36ff187243f0643f451d6b48b92b04"
+    },
+    {
+      "path": "tj-auth/tj-auth-gateway-sdk/target/tj-auth-gateway-sdk-1.0.0.jar",
+      "bytes": 12566,
+      "sha256": "bbe29dcdce31b4f3ec17615fd7a7fa1bb3d2d4e168c10a54b292f673e4958575"
+    },
+    {
+      "path": "tj-auth/tj-auth-resource-sdk/target/tj-auth-resource-sdk-1.0.0.jar",
+      "bytes": 10298,
+      "sha256": "0004051ee465a7073be9c249c5c0c8837d7592309cebf125f7e7f3c8057237b4"
+    },
+    {
+      "path": "tj-auth/tj-auth-service/target/tj-auth-service.jar",
+      "bytes": 109158244,
+      "sha256": "e8e4fc71d45d22a3f92417a669df1470d39d7d87c0e04b61327d29cd31bcc485"
+    },
+    {
+      "path": "tj-common/target/tj-common-1.0.0.jar",
+      "bytes": 130981,
+      "sha256": "1c4d6bf3a99818849648e544db8099462ad5c596ff002e66d5444fe8293daacf"
+    },
+    {
+      "path": "tj-course/target/tj-course.jar",
+      "bytes": 146854511,
+      "sha256": "7efb08f68742465940121bc4897802ca13511a91c03fbd23937ef875a933dd76"
+    },
+    {
+      "path": "tj-data/target/tj-data.jar",
+      "bytes": 122251691,
+      "sha256": "df2254ee051955b4036bbfa9d0ab830c37976e658985741bfc84a4691fec3de0"
+    },
+    {
+      "path": "tj-exam/target/tj-exam.jar",
+      "bytes": 140380473,
+      "sha256": "93b43f94212ba18b38d58f323ae4e6f672eaa8c193edc961e5041bd858723f5b"
+    },
+    {
+      "path": "tj-gateway/target/tj-gateway.jar",
+      "bytes": 76213956,
+      "sha256": "cecca82248e57ffcde271121e808e1ab6ed03e0486692a9c4dace1a7ec365436"
+    },
+    {
+      "path": "tj-learning/target/tj-learning.jar",
+      "bytes": 122418879,
+      "sha256": "81d63dabe08d553ab48e7ba5272efc5dcca706c06bdcd4eb870f6f3f6f609c56"
+    },
+    {
+      "path": "tj-media/target/tj-media.jar",
+      "bytes": 134075443,
+      "sha256": "919ec27dbd8b85763ef4e4ccdb685a738b77ceb0547886849fc27a775ddfeda1"
+    },
+    {
+      "path": "tj-message/tj-message-api/target/tj-message-api-1.0.0.jar",
+      "bytes": 5060,
+      "sha256": "0c0ef269db8ff711174fca2686feb7c9428a60f0bd3e573c784a08cf45369f7a"
+    },
+    {
+      "path": "tj-message/tj-message-domain/target/tj-message-domain-1.0.0.jar",
+      "bytes": 4910,
+      "sha256": "1e8e00e171f3f5538a0b5f207077d14fba48ad73bf0be07337fd6eac9e6d9070"
+    },
+    {
+      "path": "tj-message/tj-message-service/target/tj-message-service.jar",
+      "bytes": 109853824,
+      "sha256": "8210491a5e3592e5abfebfe990acace6a3f96a6f1f618d5b28e99f0de0be288b"
+    },
+    {
+      "path": "tj-pay/tj-pay-api/target/tj-pay-api-1.0.0.jar",
+      "bytes": 3926,
+      "sha256": "8e8adc8ad028b159ce77572a43efd917e876e39495b131b8bab5e36e2c6b295f"
+    },
+    {
+      "path": "tj-pay/tj-pay-domain/target/tj-pay-domain-1.0.0.jar",
+      "bytes": 24196,
+      "sha256": "6cddbf9cfb20c6b76f30daffe2570bc34ad069fc1323951782e2aa84dbda24ea"
+    },
+    {
+      "path": "tj-pay/tj-pay-service/target/tj-pay-service.jar",
+      "bytes": 124754529,
+      "sha256": "5c4da1ecc58726ede45f225e44c985be26c1c33338f0527a6f2ae24d24b06214"
+    },
+    {
+      "path": "tj-promotion/target/tj-promotion.jar",
+      "bytes": 122289278,
+      "sha256": "bbeb95e97b28dc93c4e1b1795fe241733efc18795d03d0b287db577a75c59119"
+    },
+    {
+      "path": "tj-remark/target/tj-remark.jar",
+      "bytes": 111603747,
+      "sha256": "9e625db696c93e88f63411d8ce6fc5f5200744d534684e273a6dbe70e3c7364d"
+    },
+    {
+      "path": "tj-search/target/tj-search.jar",
+      "bytes": 140120436,
+      "sha256": "ad326256def4d596a0e1464fc9553965af3c1c1a2793ffd3b45206b6192ec96e"
+    },
+    {
+      "path": "tj-trade/target/tj-trade.jar",
+      "bytes": 122404616,
+      "sha256": "88166e43fa29dac60ca14cbe682050fc06b0a70472e35d3525dbb6ac0894135d"
+    },
+    {
+      "path": "tj-user/target/tj-user.jar",
+      "bytes": 96257067,
+      "sha256": "e0e14527b3a71dfaff4f3943c1128f721d8c6285ed0a67c32d550570bd4d724d"
+    }
+  ],
+  "frontend": {
+    "source": "git archive of frontend commit; excludes unrelated worktree changes",
+    "api_base": "/api",
+    "archive": "target/platform-upgrade/releases/65a4beb/frontend-release.zip",
+    "bytes": 20846148,
+    "sha256": "9a3b1105dfb90aa2b8d6404b4318aed92f7e2e89b77e6211ecfa5512dd39a4eb",
+    "index_sha256": "81d927f50042f2cca37a4f97d0ef45048b9bcc7aca1048d7927661af0a2b7f75"
+  },
+  "docker": {
+    "base": "eclipse-temurin:17-jre-jammy",
+    "dockerfile_sha256": "44e5c24d675d05fc6ddff18eadd3cef77bf1670df7e6f2fac75c9b5e2fe378f7",
+    "image_built": false,
+    "image_deployed": false
+  },
+  "ai_schema_sha256": "e41ef794b299ae6c4c3aac5733277774ca088d8c53b238b23752baadd8e7122a",
+  "test_nacos_revisions": [
+    {
+      "namespace": "tianji-platform-upgrade-test",
+      "dataId": "shared-spring.yaml",
+      "group": "DEFAULT_GROUP",
+      "md5": "18407eba3e66c1a032713dfcf5641cd1"
+    },
+    {
+      "namespace": "tianji-platform-upgrade-test",
+      "dataId": "shared-mybatis.yaml",
+      "group": "DEFAULT_GROUP",
+      "md5": "ac52341ce8ad14b41bfb070146d12c3e"
+    },
+    {
+      "namespace": "tianji-platform-upgrade-test",
+      "dataId": "shared-redis.yaml",
+      "group": "DEFAULT_GROUP",
+      "md5": "a1d718dc8e47db96ec47eaeb4eb4ee02"
+    },
+    {
+      "namespace": "tianji-platform-upgrade-test",
+      "dataId": "shared-mq.yaml",
+      "group": "DEFAULT_GROUP",
+      "md5": "10c8f412db925877140b206e427e920a"
+    },
+    {
+      "namespace": "tianji-platform-upgrade-test",
+      "dataId": "shared-feign.yaml",
+      "group": "DEFAULT_GROUP",
+      "md5": "96bc3dd60086f5342b7cb54748b0f7fd"
+    },
+    {
+      "namespace": "tianji-platform-upgrade-test",
+      "dataId": "shared-xxljob.yaml",
+      "group": "DEFAULT_GROUP",
+      "md5": "17ac75342b910b36509441c26fd97752"
+    },
+    {
+      "namespace": "tianji-platform-upgrade-test",
+      "dataId": "shared-logs.yaml",
+      "group": "DEFAULT_GROUP",
+      "md5": "3dab500962baa34789a2ced7d9f3ea9e"
+    },
+    {
+      "namespace": "tianji-platform-upgrade-test",
+      "dataId": "gateway-service.yaml",
+      "group": "DEFAULT_GROUP",
+      "md5": "d6cc746c2cc157647471c58de28129b4"
+    },
+    {
+      "namespace": "tianji-platform-upgrade-test",
+      "dataId": "auth-service.yaml",
+      "group": "DEFAULT_GROUP",
+      "md5": "882baaa3b8874a7c0314d9af8eb0fa92"
+    },
+    {
+      "namespace": "tianji-platform-upgrade-test",
+      "dataId": "user-service.yaml",
+      "group": "DEFAULT_GROUP",
+      "md5": "12cd91636bfd4ea43f9b5db760258e83"
+    },
+    {
+      "namespace": "tianji-platform-upgrade-test",
+      "dataId": "course-service.yaml",
+      "group": "DEFAULT_GROUP",
+      "md5": "e4c4486759aae6b9f63f1578986c4dd1"
+    },
+    {
+      "namespace": "tianji-platform-upgrade-test",
+      "dataId": "learning-service.yaml",
+      "group": "DEFAULT_GROUP",
+      "md5": "b57a9e017b276d76f10b240267e53907"
+    },
+    {
+      "namespace": "tianji-platform-upgrade-test",
+      "dataId": "remark-service.yaml",
+      "group": "DEFAULT_GROUP",
+      "md5": "6b784a54ccc4b5e3802c0261c269406d"
+    },
+    {
+      "namespace": "tianji-platform-upgrade-test",
+      "dataId": "promotion-service.yaml",
+      "group": "DEFAULT_GROUP",
+      "md5": "2db28e6c06362a6c8b9458bc1c49304a"
+    },
+    {
+      "namespace": "tianji-platform-upgrade-test",
+      "dataId": "platform-upgrade-framework-probe.yaml",
+      "group": "DEFAULT_GROUP",
+      "md5": "84ac5e9b08309dba4210874ab09b95f6"
+    },
+    {
+      "namespace": "tianji-platform-upgrade-test-boot3",
+      "dataId": "shared-spring.yaml",
+      "group": "DEFAULT_GROUP",
+      "md5": "18407eba3e66c1a032713dfcf5641cd1"
+    },
+    {
+      "namespace": "tianji-platform-upgrade-test-boot3",
+      "dataId": "shared-mybatis.yaml",
+      "group": "DEFAULT_GROUP",
+      "md5": "549474d1a6608615182a10b049436ba6"
+    },
+    {
+      "namespace": "tianji-platform-upgrade-test-boot3",
+      "dataId": "shared-redis.yaml",
+      "group": "DEFAULT_GROUP",
+      "md5": "10bbc164d863f191b9de701aa6df1dab"
+    },
+    {
+      "namespace": "tianji-platform-upgrade-test-boot3",
+      "dataId": "shared-mq.yaml",
+      "group": "DEFAULT_GROUP",
+      "md5": "10c8f412db925877140b206e427e920a"
+    },
+    {
+      "namespace": "tianji-platform-upgrade-test-boot3",
+      "dataId": "shared-feign.yaml",
+      "group": "DEFAULT_GROUP",
+      "md5": "59b7f2fea3cba40b13a1a27fe45c65b2"
+    },
+    {
+      "namespace": "tianji-platform-upgrade-test-boot3",
+      "dataId": "shared-xxljob.yaml",
+      "group": "DEFAULT_GROUP",
+      "md5": "17ac75342b910b36509441c26fd97752"
+    },
+    {
+      "namespace": "tianji-platform-upgrade-test-boot3",
+      "dataId": "shared-seata.yaml",
+      "group": "DEFAULT_GROUP",
+      "md5": "b38ab22ed6c09e4b54959cfdb1c4cc03"
+    },
+    {
+      "namespace": "tianji-platform-upgrade-test-boot3",
+      "dataId": "shared-logs.yaml",
+      "group": "DEFAULT_GROUP",
+      "md5": "3dab500962baa34789a2ced7d9f3ea9e"
+    },
+    {
+      "namespace": "tianji-platform-upgrade-test-boot3",
+      "dataId": "gateway-service.yaml",
+      "group": "DEFAULT_GROUP",
+      "md5": "25bcb8a0b2cecd30dd79cabdc981a61b"
+    },
+    {
+      "namespace": "tianji-platform-upgrade-test-boot3",
+      "dataId": "auth-service.yaml",
+      "group": "DEFAULT_GROUP",
+      "md5": "6845ede27399ae45e3b118b4921e21fb"
+    },
+    {
+      "namespace": "tianji-platform-upgrade-test-boot3",
+      "dataId": "user-service.yaml",
+      "group": "DEFAULT_GROUP",
+      "md5": "20059ef4e9c2c984dce9a48c42aaa270"
+    },
+    {
+      "namespace": "tianji-platform-upgrade-test-boot3",
+      "dataId": "course-service.yaml",
+      "group": "DEFAULT_GROUP",
+      "md5": "24500e70076bf0400b9b8e06a2111f21"
+    },
+    {
+      "namespace": "tianji-platform-upgrade-test-boot3",
+      "dataId": "learning-service.yaml",
+      "group": "DEFAULT_GROUP",
+      "md5": "72e8c2d2c16316f6729e29cc24cb7c97"
+    },
+    {
+      "namespace": "tianji-platform-upgrade-test-boot3",
+      "dataId": "remark-service.yaml",
+      "group": "DEFAULT_GROUP",
+      "md5": "6d987a7567dd0815c882fa3da7a8f546"
+    },
+    {
+      "namespace": "tianji-platform-upgrade-test-boot3",
+      "dataId": "promotion-service.yaml",
+      "group": "DEFAULT_GROUP",
+      "md5": "f06359859a223a2e737184480aac8626"
+    },
+    {
+      "namespace": "tianji-platform-upgrade-test-boot3",
+      "dataId": "platform-upgrade-framework-probe.yaml",
+      "group": "DEFAULT_GROUP",
+      "md5": "84ac5e9b08309dba4210874ab09b95f6"
+    },
+    {
+      "namespace": "tianji-platform-upgrade-test-boot3",
+      "dataId": "search-service.yaml",
+      "group": "DEFAULT_GROUP",
+      "md5": "784a6a824ea0790b826dbda4b87748b5"
+    },
+    {
+      "namespace": "tianji-platform-upgrade-test-boot3",
+      "dataId": "trade-service.yaml",
+      "group": "DEFAULT_GROUP",
+      "md5": "02f9ea57175959408f9326987640e1f0"
+    },
+    {
+      "namespace": "tianji-platform-upgrade-test-boot3",
+      "dataId": "exam-service.yaml",
+      "group": "DEFAULT_GROUP",
+      "md5": "2ae4ef489347b0166d9c7439d5c84068"
+    },
+    {
+      "namespace": "tianji-platform-upgrade-test-boot3",
+      "dataId": "data-service.yaml",
+      "group": "DEFAULT_GROUP",
+      "md5": "2b2cbc978cd17edb22d36c07cdc0f219"
+    },
+    {
+      "namespace": "tianji-platform-upgrade-test-boot3",
+      "dataId": "pay-service.yaml",
+      "group": "DEFAULT_GROUP",
+      "md5": "128a1d383c177df767aab2c5f111ac4b"
+    },
+    {
+      "namespace": "tianji-platform-upgrade-test-boot3",
+      "dataId": "message-service.yaml",
+      "group": "DEFAULT_GROUP",
+      "md5": "ec816ae06fae34158face7a45733f797"
+    },
+    {
+      "namespace": "tianji-platform-upgrade-test-boot3",
+      "dataId": "media-service.yaml",
+      "group": "DEFAULT_GROUP",
+      "md5": "fa26cd2587856c72a4166c1f686b85f7"
+    },
+    {
+      "namespace": "tianji-platform-upgrade-test-boot3",
+      "dataId": "aigc-service.yaml",
+      "group": "DEFAULT_GROUP",
+      "md5": "47903ca33513bdc0512bd17b1fdf1b57"
+    }
+  ],
+  "rollback": {
+    "source": "codex/platform-upgrade-p0",
+    "java": "11",
+    "spring_boot": "2.7.2",
+    "namespace": "tianji-platform-upgrade-test",
+    "login_checks_passed": 9,
+    "restored_checks_passed": 9
+  },
+  "production_deployed": false
+}

@@ -1,0 +1,11 @@
+{
+  "status": "questions-only-not-model-results",
+  "courseIds": ["1589888774267072513", "1589905661084430337"],
+  "cases": [
+    {"id":"detail","question":"Java程序员的前端课程适合什么基础的人？请查一下课程详情。"},
+    {"id":"compare","question":"Java程序员的前端课程和可能是史上最全的微服务技术栈课程，适用人群有什么区别？"},
+    {"id":"target-fit","question":"我会Java，能用Spring Boot和MyBatis写接口，想学HTML、CSS和JavaScript做网页。请帮我看看《Java程序员的前端课程》是否适合这个目标，并推荐给我。"},
+    {"id":"catalogue","question":"请给出Java程序员的前端课程的正式目录。"},
+    {"id":"depth","question":"Java程序员的前端课程中，JavaScript讲多深？能确认是完整覆盖的吗？"}
+  ]
+}

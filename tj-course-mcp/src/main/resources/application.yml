@@ -1,0 +1,42 @@
+server:
+  address: 127.0.0.1
+  port: 8097
+spring:
+  application:
+    name: course-mcp-service
+  ai:
+    mcp:
+      server:
+        name: course-catalog
+        version: 1.0.0
+        type: SYNC
+        protocol: STREAMABLE
+        annotation-scanner:
+          enabled: false
+  cloud:
+    openfeign:
+      client:
+        config:
+          course:
+            url: ${TJ_COURSE_SERVICE_URL}
+            connectTimeout: 2000
+            readTimeout: 4000
+  # Optional pilot deliberately has no database, Redis, RabbitMQ or user-auth runtime.
+  autoconfigure:
+    exclude:
+      - com.tianji.api.config.RequestIdRelayConfiguration
+      - com.tianji.api.config.RoleCacheConfig
+      - com.tianji.api.config.FallbackConfig
+      - com.tianji.api.config.CategoryCacheConfig
+      - com.tianji.common.autoconfigure.mybatis.MybatisConfig
+      - com.tianji.common.autoconfigure.redisson.RedissonConfig
+      - com.tianji.common.autoconfigure.mq.MqConfig
+      - com.tianji.common.autoconfigure.mvc.MvcConfig
+      - com.tianji.common.autoconfigure.mvc.JsonConfig
+      - com.tianji.common.autoconfigure.swagger.Knife4jConfiguration
+tj:
+  mcp:
+    server:
+      token: ${TJ_MCP_SERVER_TOKEN:}
+      allowed-course-ids: ${TJ_MCP_ALLOWED_COURSE_IDS:}
+      max-concurrent-calls: 4

@@ -1,0 +1,2 @@
+com.tianji.authsdk.resource.config.ResourceInterceptorConfiguration
+com.tianji.authsdk.resource.config.FeignRelayUserAutoConfiguration

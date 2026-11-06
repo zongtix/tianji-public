@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tianji.learning.mapper.lesson.LearningRecordMapper">
+
+    <!--
+        按课表id分组，统计某用户本周内「完成学习」的小节数量
+        对应接口方法：LearningRecordMapper.countLearnedSections(userId, begin, end)
+
+        几个要点：
+         1. finished = 1
+            learning_record.finished 是 bit(1)，库里存的就是 0/1，可以直接当数字比较
+
+         2. GROUP BY lesson_id
+            一次查回「每门课本周完成了几节」，配合 IdAndNumDTO.toMap() 转成 Map<lessonId, 数量>，
+            避免在 for 循环里逐个 lessonId 查（那就是 N+1，一页 20 条课 = 20 次查询）
+
+         3. 时间是左闭右开：finish_time >= begin AND finish_time < end
+            begin = 本周一 00:00:00，end = 下周一 00:00:00
+            不要用 BETWEEN，BETWEEN 是闭区间，会把「下周一 00:00:00」那条记录也算进本周
+
+         4. lesson_id 的语义
+            存的是 learning_lesson.id（课表主键），不是 course_id。
+            Java 侧拿它和 LearningLesson.getId() 对应，别跟 getCourseId() 混
+
+         5. 本周一节都没学的课不会出现在结果里
+            所以 Java 侧取值要用 Map.getOrDefault(lessonId, 0)
+    -->
+    <select id="countLearnedSections" resultType="com.tianji.api.dto.IdAndNumDTO">
+        SELECT lesson_id AS id, COUNT(1) AS num
+        FROM learning_record
+        WHERE user_id = #{userId}
+          AND finished = 1
+          AND finish_time &gt;= #{begin}
+          AND finish_time &lt; #{end}
+        GROUP BY lesson_id
+    </select>
+
+    <!--
+        本周已完成的小节数（只算「计划内课程」的完成记录）
+        对应接口方法：LearningRecordMapper.countWeekFinished(userId, begin, end)
+
+        为什么要 INNER JOIN learning_lesson：
+        learning_record 表里只有 lesson_id，光看记录本身不知道这门课有没有计划。
+        而「本周计划」的分母（LearningLessonMapper.queryTotalPlan）限定在 plan_status = 1 的课上，
+        分子如果不限定课程范围，把「没制定计划的课」的完成数也收进来，
+        两个数就不同源了，会出现「完成数大于计划数」这种解释不通的数字。
+
+        这里不用再判断课表 status：
+        分子只统计本周内的完成记录，时间条件本身已经保证这门课本周是活跃的，
+        和分母里那个 EXISTS 判断天然对齐。
+
+        时间范围同样是左闭右开：finish_time >= begin AND finish_time < end。
+    -->
+    <select id="countWeekFinished" resultType="java.lang.Integer">
+        SELECT COUNT(1)
+        FROM learning_record r
+        INNER JOIN learning_lesson l ON r.lesson_id = l.id
+        WHERE r.user_id = #{userId}
+          AND r.finished = 1
+          AND r.finish_time &gt;= #{begin}
+          AND r.finish_time &lt; #{end}
+          AND l.plan_status = 1
+    </select>
+</mapper>

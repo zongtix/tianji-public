@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tianji.learning.mapper.interaction.InteractionQuestionMapper">
+
+    <!--
+        互动问答（问题表）的自定义 SQL 预留位。
+
+        基础 CRUD（insert / selectById / updateById / deleteById / 分页 …）全部由
+        MyBatis-Plus 的 BaseMapper 现成提供，不需要在这里重复声明。
+        这里预留给后续接口要用的手写 SQL，比如：
+          · 管理端分页查询（多条件 + 关联课程、用户信息）
+          · 按 course_id / section_id 聚合统计问题数
+
+        写法对齐两步走，缺一不可：
+          1) 在 InteractionQuestionMapper 接口里加方法签名（多参数用 @Param("name") 命名）
+          2) 在本文件里加 <select id="方法名" ...>，id 必须与方法名逐字一致
+        漏掉任意一步，运行时报 "Invalid bound statement (not found)"。
+        注意：这个报错在 IDEA 里跑可能因为读的是 target/classes 里的旧产物而看不出来，
+        改完 XML 记得让 IDEA 重新 build（或重新编译对应模块）。
+    -->
+</mapper>

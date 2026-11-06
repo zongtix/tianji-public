@@ -1,0 +1,198 @@
+server:
+  port: 8096
+spring:
+  reactor:
+    context-propagation: auto
+  application:
+    name: aigc-service
+  servlet:
+    multipart:
+      # 完整 60 秒的 16kHz / 16bit 单声道 WAV 约 1.92MB。
+      max-file-size: 2MB
+      max-request-size: 3MB
+  data:
+    mongodb:
+      uri: ${TJ_AIGC_MONGODB_URI:}
+  elasticsearch:
+    uris: ${ELASTICSEARCH_URIS:http://127.0.0.1:19201}
+    username: ${TJ_AIGC_ES_USERNAME:tj_aigc_app}
+    # 本地开发由 Nacos 下发密码，也可通过此环境变量覆盖。
+    password: ${TJ_AIGC_ES_PASSWORD:}
+    connection-timeout: 3s
+    socket-timeout: 30s
+  ai:
+    mcp:
+      client:
+        # Explicit client lifecycle; never discover/register global model tools.
+        enabled: false
+        toolcallback:
+          enabled: false
+    chat:
+      observations:
+        # 把真实 prompt/completion 写进 OTel span，Langfuse 里才能看到实际请求体
+        # 长期记忆(UserMemoryConfig)要求二者全关闭；开启后 Langfuse 不再记录 prompt/completion 正文
+        log-prompt: false
+        log-completion: false
+    model:
+      # Embedding 使用独立的百炼配置，避免复用 DeepSeek 的地址和密钥。
+      embedding: none
+    openai:
+      api-key: ${tj.ai.api-key}
+      base-url: ${tj.ai.base-url}
+      chat:
+        completions-path: /chat/completions
+        options:
+          model: ${tj.ai.model}
+          max-tokens: 2048
+          extra-body:
+            thinking:
+              type: disabled
+    retry:
+      max-attempts: 1
+  profiles:
+    active: ${SPRING_PROFILES_ACTIVE:dev}
+  config:
+    import:
+      - "nacos:shared-spring.yaml?group=DEFAULT_GROUP&refreshEnabled=false"
+      - "nacos:shared-mybatis.yaml?group=DEFAULT_GROUP&refreshEnabled=false"
+      - "nacos:shared-redis.yaml?group=DEFAULT_GROUP&refreshEnabled=false"
+      - "nacos:shared-logs.yaml?group=DEFAULT_GROUP&refreshEnabled=false"
+      - "optional:nacos:shared-mq.yaml?group=DEFAULT_GROUP&refreshEnabled=false"
+      - "nacos:${spring.application.name}.yaml?group=DEFAULT_GROUP&refreshEnabled=false"
+  cloud:
+    nacos:
+      config:
+        namespace: ${NACOS_NAMESPACE:tianji-local-boot3}
+      discovery:
+        namespace: ${NACOS_NAMESPACE}
+tj:
+  swagger:
+    enable: ${TJ_SWAGGER_ENABLED:false}
+    enableResponseWrap: true
+    package-path: com.tianji.aigc.controller
+    title: 天机学堂 - AI 学习助手
+    description: 学习对话、会话历史和停止生成
+    version: v1.0
+  jdbc:
+    database: tj_aigc
+  auth:
+    resource:
+      enable: true
+  ai:
+    # AIGC 与调用机器人的服务配置同一环境令牌；为空时内部回复入口拒绝调用。
+    internal-token: ${TJ_AI_INTERNAL_TOKEN:}
+    mcp:
+      enabled: ${TJ_AI_MCP_ENABLED:false}
+      course-detail-source: ${TJ_AI_MCP_COURSE_DETAIL_SOURCE:local}
+      course-server-url: ${TJ_AI_MCP_COURSE_SERVER_URL:}
+      token: ${TJ_AI_MCP_TOKEN:}
+      request-timeout: 5s
+      round-budget: ${TJ_AI_MCP_ROUND_BUDGET:20s}
+      max-concurrent-calls: 4
+    api-key: ${DEEPSEEK_API_KEY}
+    audio:
+      enabled: ${TJ_AI_AUDIO_ENABLED:true}
+      api-key: ${TJ_AI_AUDIO_API_KEY:${DASHSCOPE_API_KEY:}}
+      recognition-model: paraformer-realtime-v2
+      speech-model: cosyvoice-v3-flash
+      voice: longanyang
+      user-daily-limit: 20
+      global-daily-limit: 200
+    base-url: https://api.deepseek.com
+    model: deepseek-flash
+    prompt:
+      system:
+        chat:
+          data-id: system-chat-message.txt
+          group: DEFAULT_GROUP
+          timeout-ms: 20000
+    knowledge:
+      enabled: ${TJ_AI_KNOWLEDGE_ENABLED:false}
+      store-type: ${TJ_AI_KNOWLEDGE_STORE_TYPE:elasticsearch}
+      embedding:
+        api-key: ${DASHSCOPE_API_KEY:}
+        base-url: ${DASHSCOPE_BASE_URL:}
+        model: text-embedding-v4
+        dimensions: 1024
+      index-name: tj_aigc_knowledge_v4_1024
+      redis:
+        host: ${TJ_AIGC_VECTOR_REDIS_HOST:127.0.0.1}
+        port: ${TJ_AIGC_VECTOR_REDIS_PORT:36379}
+        username: default
+        password: ${TJ_AIGC_VECTOR_REDIS_PASSWORD:}
+        index-name: tj_aigc_knowledge_v4_1024
+        prefix: "tj:aigc:knowledge:v4:1024:"
+      public-bases:
+        tianji-points:
+          - tianji-points-guide
+        tianji-coupons:
+          - tianji-coupon-guide
+
+      retrieval:
+        top-k: 3
+        similarity-threshold: 0.6
+      rag:
+        mode: B
+        config-version: rag-v1
+        prompt-version: knowledge-v1
+        preparation-timeout: 25s
+        inherit-aprime: false
+        rerank:
+          enabled: ${TJ_AI_RERANK_ENABLED:false}
+          endpoint: ${TJ_AI_RERANK_ENDPOINT:https://maas.qianwenaiapi.com/api/v1/services/rerank/text-rerank/text-rerank}
+          api-key: ${TJ_AI_RERANK_API_KEY:${DASHSCOPE_API_KEY:}}
+          model: ${TJ_AI_RERANK_MODEL:qwen3-rerank}
+          timeout: 5s
+        context:
+          window-tokens: 16384
+          output-reserve: 2048
+          safety-margin: 512
+      observation:
+        langfuse:
+          enabled: ${TJ_AI_LANGFUSE_ENABLED:false}
+          endpoint: ${LANGFUSE_OTLP_TRACES_ENDPOINT:}
+          public-key: ${LANGFUSE_PUBLIC_KEY:}
+          secret-key: ${LANGFUSE_SECRET_KEY:}
+    course-retrieval:
+      enabled: ${TJ_AI_COURSE_RETRIEVAL_ENABLED:true}
+      top-k: ${TJ_AI_COURSE_TOP_K:5}
+      similarity-threshold: ${TJ_AI_COURSE_THRESHOLD:0.6}
+      sync:
+        enabled: ${TJ_AI_COURSE_INDEX_SYNC_ENABLED:false}
+        page-size: 50
+        initial-delay-ms: 5000
+        fixed-delay-ms: 60000
+    course-materials:
+      # 2026-10-31 产品拍板日常开启；回退设 TJ_AI_COURSE_MATERIALS_ENABLED=false
+      enabled: ${TJ_AI_COURSE_MATERIALS_ENABLED:true}
+      index-name: tj_aigc_course_materials_v1_1024
+      max-calls-per-turn: 2
+      max-evidence: 3
+    public-rules:
+      enabled: ${TJ_AI_PUBLIC_RULES_ENABLED:true}
+      max-calls-per-turn: 3
+      max-evidence: 3
+    memory:
+      window-tokens: ${TJ_AI_CHAT_WINDOW_TOKENS:16384}
+      output-reserve: ${TJ_AI_CHAT_OUTPUT_RESERVE:2048}
+      safety-margin: ${TJ_AI_CHAT_SAFETY_MARGIN:512}
+      type: mysql
+      max: 100
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health
+  otlp:
+    tracing:
+      export:
+        enabled: false # 仅由显式 Langfuse 开关创建 exporter，不发送到默认 localhost:4318。
+  tracing:
+    sampling:
+      probability: 1.0
+    opentelemetry:
+      export:
+        max-queue-size: 1024
+        max-batch-size: 128
+        schedule-delay: 5s
+        timeout: 2s

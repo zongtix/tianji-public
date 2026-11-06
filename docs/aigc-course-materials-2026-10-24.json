@@ -1,0 +1,73 @@
+{
+  "scope": "Existing published materials and catalogue only; no new teaching claims",
+  "courses": [
+    {
+      "id": "1589888774267072513",
+      "name": "Java程序员的前端课程",
+      "table": "course_content",
+      "originalUpdateTime": "2022-11-08 15:53:17",
+      "before": {
+        "course_introduce": "本课程针对有一定后端基础，想快速学习前端知识的同学。内容涉及HTML、CSS、JS、Vue2、Vue3、React、jQuery 等知识，侧重快速掌握 js 和前端框架、更为适合工作重心在后端，需要兼顾前端的开发者，学习者可以根据自己需要灵活选择。课程不仅会涉及框架的使用、还会讲解到框架的原理和相关的 web 知识、能帮助学习者理解的更为透彻。",
+        "use_people": "有一定后端基础，想快速学习前端知识的同学。",
+        "course_detail": "内容涉及HTML、CSS、JS、Vue2、Vue3、React、jQuery 等知识，侧重快速掌握 js 和前端框架、更为适合工作重心在后端，需要兼顾前端的开发者，学习者可以根据自己需要灵活选择。课程不仅会涉及框架的使用、还会讲解到框架的原理和相关的 web 知识、能帮助学习者理解的更为透彻。"
+      },
+      "after": {
+        "course_introduce": "面向有一定后端基础、需要兼顾前端的开发者。正式目录列出 HTML/CSS 与 JavaScript 基础；原介绍还涉及 Vue2、Vue3、React、jQuery 等框架，框架对应章节待核对。",
+        "use_people": "有一定后端基础，想快速学习前端知识的同学。",
+        "course_detail": "<h3>课程定位与适用人群</h3><p>有一定后端基础，想快速学习前端知识的同学。工作重心在后端、需要兼顾前端的开发者可按需要选择学习内容。</p><h3>当前正式目录</h3><ul><li>Html与CSS</li><li>Html与CSS / HTML元素</li><li>Html与CSS / HTML页面</li><li>Html与CSS / 常见元素</li><li>Html与CSS / CSS</li><li>JavaScript</li><li>JavaScript / 快速入门</li><li>JavaScript / 变量</li><li>JavaScript / 数据类型</li><li>JavaScript / 运算符</li><li>JavaScript / 控制语句</li></ul><h3>原介绍声明的其他内容</h3><p>原介绍涉及 Vue2、Vue3、React、jQuery，并说明会涉及框架使用、原理及相关 Web 知识。当前正式目录未列出这些框架的对应章节，具体章节安排仍待核对。</p><h3>前置基础</h3><p>原资料仅说明需有一定后端基础，未细化具体语言、框架或工作年限要求。</p>"
+      },
+      "sources": [
+        "tj_course.course_content.1589888774267072513",
+        "tj_course.course_catalogue.course_id=1589888774267072513"
+      ],
+      "evidence": {
+        "originalAudience": "有一定后端基础，想快速学习前端知识的同学。",
+        "originalIntroduction": "本课程针对有一定后端基础，想快速学习前端知识的同学。内容涉及HTML、CSS、JS、Vue2、Vue3、React、jQuery 等知识，侧重快速掌握 js 和前端框架、更为适合工作重心在后端，需要兼顾前端的开发者，学习者可以根据自己需要灵活选择。课程不仅会涉及框架的使用、还会讲解到框架的原理和相关的 web 知识、能帮助学习者理解的更为透彻。",
+        "catalogue": [
+          "Html与CSS",
+          "Html与CSS / HTML元素",
+          "Html与CSS / HTML页面",
+          "Html与CSS / 常见元素",
+          "Html与CSS / CSS",
+          "JavaScript",
+          "JavaScript / 快速入门",
+          "JavaScript / 变量",
+          "JavaScript / 数据类型",
+          "JavaScript / 运算符",
+          "JavaScript / 控制语句"
+        ]
+      }
+    },
+    {
+      "id": "1589905661084430337",
+      "name": "可能是史上最全的微服务技术栈课程",
+      "table": "course_content",
+      "originalUpdateTime": "2022-11-08 17:00:23",
+      "before": {
+        "course_introduce": "可能是史上最全的微服务技术栈课程，由黑马名师授课，你值的拥有",
+        "use_people": "有一定的Java开发基础，熟练使用了SpringBoot、MyBatis等基础框架",
+        "course_detail": "可能是史上最全的微服务技术栈课程，由黑马名师授课，你值的拥有"
+      },
+      "after": {
+        "course_introduce": "面向有一定 Java 开发基础、熟练使用 SpringBoot 和 MyBatis 等基础框架的学习者。当前正式目录列出认识微服务、微服务架构演变、微服务技术对比和 SpringCloud。",
+        "use_people": "有一定的Java开发基础，熟练使用了SpringBoot、MyBatis等基础框架",
+        "course_detail": "<h3>课程内容</h3><p>根据当前正式目录，可核实的主题包括认识微服务、微服务架构演变、微服务技术对比和 SpringCloud。</p><h3>适用人群与前置基础</h3><p>有一定的Java开发基础，熟练使用了SpringBoot、MyBatis等基础框架。</p><h3>当前正式目录</h3><ul><li>认识微服务</li><li>认识微服务 / 今日课程介绍</li><li>认识微服务 / 微服务架构演变</li><li>认识微服务 / 微服务技术对比</li><li>认识微服务 / SpringCloud</li></ul><h3>资料范围</h3><p>现有资料未说明 SpringCloud 各组件的讲解深度、完整实战项目及后续章节安排，相关内容待课程方补充确认。课程名称中的“最全”不能作为完整覆盖微服务技术栈的依据。</p>"
+      },
+      "sources": [
+        "tj_course.course_content.1589905661084430337",
+        "tj_course.course_catalogue.course_id=1589905661084430337"
+      ],
+      "evidence": {
+        "originalAudience": "有一定的Java开发基础，熟练使用了SpringBoot、MyBatis等基础框架",
+        "originalIntroduction": "可能是史上最全的微服务技术栈课程，由黑马名师授课，你值的拥有",
+        "catalogue": [
+          "认识微服务",
+          "认识微服务 / 今日课程介绍",
+          "认识微服务 / 微服务架构演变",
+          "认识微服务 / 微服务技术对比",
+          "认识微服务 / SpringCloud"
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tianji.learning.mapper.lesson.LearningLessonMapper">
+
+    <!--
+        本周计划学习的小节总数 = 本周有效计划课程的 week_freq 之和
+        对应接口方法：LearningLessonMapper.queryTotalPlan(userId, begin, end)
+
+        【为什么不能简单地写成 status IN (0,1)】
+        一门课整门学完时 status 会变成 2（已学完）。如果分母按 status 过滤，
+        这门课就会在学完的那一瞬间从「本周计划」里掉出去 —— 本周计划量凭空缩水，
+        用户看到的是「越学越少」，像这周白干了一样。
+
+        【本周有效 = 还活着的课 + 本周内完成过的课】
+            l.status IN (0, 1)                     仍在进行中      计入
+            OR EXISTS(本周有 finished 的完成记录)    本周刚刚学完    也计入
+        好处：
+          · 本周内学完的课，它的 week_freq 本周内一直留在分母里，不会缩水
+          · 上周就学完、本周没再动的课，EXISTS 命中不了，不会长期占着本周额度
+
+        plan_status = 1 不能少：没制定计划的课 week_freq 是 NULL，会污染 SUM。
+
+        IFNULL(...,0)：一条都没匹配到时 SUM 返回 NULL，不兜底 Java 侧 Integer 会收到 null。
+    -->
+    <select id="queryTotalPlan" resultType="java.lang.Integer">
+        SELECT IFNULL(SUM(l.week_freq), 0)
+        FROM learning_lesson l
+        WHERE l.user_id = #{userId}
+          AND l.plan_status = 1
+          AND (
+                l.status IN (0, 1)
+                OR EXISTS (
+                    SELECT 1 FROM learning_record r
+                    WHERE r.lesson_id = l.id
+                      AND r.finished = 1
+                      AND r.finish_time &gt;= #{begin}
+                      AND r.finish_time &lt; #{end}
+                )
+              )
+    </select>
+</mapper>

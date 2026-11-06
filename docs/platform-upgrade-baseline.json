@@ -1,0 +1,290 @@
+[
+  {
+    "case": "anonymous user info",
+    "passed": true,
+    "http": 401,
+    "code": null
+  },
+  {
+    "case": "invalid JWT",
+    "passed": true,
+    "http": 401,
+    "code": null
+  },
+  {
+    "case": "forged identity header",
+    "passed": true,
+    "http": 401,
+    "code": null
+  },
+  {
+    "case": "wrong password",
+    "passed": true,
+    "http": 200,
+    "code": 400
+  },
+  {
+    "case": "login and HttpOnly refresh cookie",
+    "passed": true,
+    "http": 200,
+    "code": 200
+  },
+  {
+    "case": "authenticated user info",
+    "passed": true,
+    "http": 200,
+    "code": 200
+  },
+  {
+    "case": "refresh token",
+    "passed": true,
+    "http": 200,
+    "code": 200
+  },
+  {
+    "case": "logout",
+    "passed": true,
+    "http": 200,
+    "code": 200
+  },
+  {
+    "case": "logged-out refresh rejected",
+    "passed": true,
+    "http": 200,
+    "code": 400
+  },
+  {
+    "case": "business login",
+    "passed": true,
+    "http": 200,
+    "code": 200
+  },
+  {
+    "case": "sign calendar",
+    "passed": true,
+    "http": 200,
+    "code": 200
+  },
+  {
+    "case": "duplicate sign in rejected",
+    "passed": true,
+    "http": 200,
+    "code": 0
+  },
+  {
+    "case": "calendar reflects committed sign in",
+    "passed": true,
+    "http": 200,
+    "code": 200
+  },
+  {
+    "case": "outbox MQ consumption credits points",
+    "passed": true,
+    "http": 200,
+    "code": 200
+  },
+  {
+    "case": "invalid board pagination",
+    "passed": true,
+    "http": 200,
+    "code": 400
+  },
+  {
+    "case": "current monthly board",
+    "passed": true,
+    "http": 200,
+    "code": 200
+  },
+  {
+    "case": "first like",
+    "passed": true,
+    "http": 200,
+    "code": 200
+  },
+  {
+    "case": "repeated like",
+    "passed": true,
+    "http": 200,
+    "code": 200
+  },
+  {
+    "case": "liked identity",
+    "passed": true,
+    "http": 200,
+    "code": 200
+  },
+  {
+    "case": "idempotent like count",
+    "passed": true,
+    "http": 200,
+    "code": 200
+  },
+  {
+    "case": "unlike",
+    "passed": true,
+    "http": 200,
+    "code": 200
+  },
+  {
+    "case": "repeated unlike",
+    "passed": true,
+    "http": 200,
+    "code": 200
+  },
+  {
+    "case": "unlike count",
+    "passed": true,
+    "http": 200,
+    "code": 200
+  },
+  {
+    "case": "unsupported like type rejected",
+    "passed": true,
+    "http": 200,
+    "code": 400
+  },
+  {
+    "case": "missing reply rejected",
+    "passed": true,
+    "http": 200,
+    "code": 400
+  },
+  {
+    "case": "course basic query",
+    "passed": true,
+    "http": 200,
+    "code": 200
+  },
+  {
+    "case": "missing course rejected",
+    "passed": true,
+    "http": 200,
+    "code": 400
+  },
+  {
+    "case": "question creation",
+    "passed": true,
+    "http": 200,
+    "code": 200
+  },
+  {
+    "case": "question pagination and identity",
+    "passed": true,
+    "http": 200,
+    "code": 200
+  },
+  {
+    "case": "answer creation",
+    "passed": true,
+    "http": 200,
+    "code": 200
+  },
+  {
+    "case": "student admin access rejected",
+    "passed": true,
+    "http": 200,
+    "code": 403
+  },
+  {
+    "case": "admin login",
+    "passed": true,
+    "http": 200,
+    "code": 200
+  },
+  {
+    "case": "coupon creation 1",
+    "passed": true,
+    "http": 200,
+    "code": 200
+  },
+  {
+    "case": "coupon query 1",
+    "passed": true,
+    "http": 200,
+    "code": 200
+  },
+  {
+    "case": "coupon issuance 1",
+    "passed": true,
+    "http": 200,
+    "code": 200
+  },
+  {
+    "case": "repeat issuance rejected 1",
+    "passed": true,
+    "http": 200,
+    "code": 400
+  },
+  {
+    "case": "concurrent claiming respects user limit",
+    "passed": true,
+    "http": 200,
+    "code": null
+  },
+  {
+    "case": "claim stock and relationship committed once",
+    "passed": true,
+    "http": 200,
+    "code": null
+  },
+  {
+    "case": "coupon creation 2",
+    "passed": true,
+    "http": 200,
+    "code": 200
+  },
+  {
+    "case": "coupon query 2",
+    "passed": true,
+    "http": 200,
+    "code": 200
+  },
+  {
+    "case": "coupon issuance 2",
+    "passed": true,
+    "http": 200,
+    "code": 200
+  },
+  {
+    "case": "repeat issuance rejected 2",
+    "passed": true,
+    "http": 200,
+    "code": 400
+  },
+  {
+    "case": "asynchronous exchange code generation",
+    "passed": true,
+    "http": 200,
+    "code": null
+  },
+  {
+    "case": "exchange code redemption",
+    "passed": true,
+    "http": 200,
+    "code": 200
+  },
+  {
+    "case": "repeat redemption rejected",
+    "passed": true,
+    "http": 200,
+    "code": 400
+  },
+  {
+    "case": "redemption over user limit rejected",
+    "passed": true,
+    "http": 200,
+    "code": 400
+  },
+  {
+    "case": "failed redemption rolls back code and stock",
+    "passed": true,
+    "http": 200,
+    "code": null
+  },
+  {
+    "case": "first sign in",
+    "passed": true,
+    "http": 200,
+    "code": 200
+  }
+]

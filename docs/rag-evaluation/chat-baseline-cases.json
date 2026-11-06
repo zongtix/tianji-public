@@ -1,0 +1,18 @@
+{
+  "version": "chat-baseline-v1",
+  "origin": "两个人工编写的合成场景，用于小范围前后对照，不代表真实用户流量或完整质量验收。",
+  "cases": [
+    {
+      "id": "course-frontend-goal",
+      "question": "我会Java，熟练使用Spring Boot和MyBatis写后端接口，现在想学HTML、CSS和JavaScript做网页。请推荐最贴合目标的一门课程，核对资料并展示课程卡片，简短说明理由。",
+      "expectedCourseId": "1589888774267072513",
+      "reviewCriteria": "推荐与网页开发目标一致；理由以实际课程资料为依据；价格、有效期等事实与课程服务一致；不承诺未提供的内容或效果。"
+    },
+    {
+      "id": "knowledge-points-limit",
+      "knowledgeBaseId": "tianji-points",
+      "question": "课程学习当天已经拿满50分，还能通过签到获得积分吗？请直接回答并说明依据。",
+      "reviewCriteria": "保留已明确的学习积分已满条件；依据按积分类型分别计算上限的规则回答；不将学习积分上限误作所有积分的共同上限。"
+    }
+  ]
+}

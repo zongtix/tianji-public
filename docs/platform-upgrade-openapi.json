@@ -1,0 +1,102 @@
+[
+  {
+    "case": "gateway aggregation config",
+    "passed": true
+  },
+  {
+    "case": "user grouped route",
+    "passed": true
+  },
+  {
+    "case": "user raw OpenAPI JSON",
+    "passed": true
+  },
+  {
+    "case": "user schema references resolve",
+    "passed": true
+  },
+  {
+    "case": "user documented response envelope",
+    "passed": true
+  },
+  {
+    "case": "auth grouped route",
+    "passed": true
+  },
+  {
+    "case": "auth raw OpenAPI JSON",
+    "passed": true
+  },
+  {
+    "case": "auth schema references resolve",
+    "passed": true
+  },
+  {
+    "case": "auth documented response envelope",
+    "passed": true
+  },
+  {
+    "case": "course grouped route",
+    "passed": true
+  },
+  {
+    "case": "course raw OpenAPI JSON",
+    "passed": true
+  },
+  {
+    "case": "course schema references resolve",
+    "passed": true
+  },
+  {
+    "case": "learning grouped route",
+    "passed": true
+  },
+  {
+    "case": "learning raw OpenAPI JSON",
+    "passed": true
+  },
+  {
+    "case": "learning schema references resolve",
+    "passed": true
+  },
+  {
+    "case": "learning documented response envelope",
+    "passed": true
+  },
+  {
+    "case": "remark grouped route",
+    "passed": true
+  },
+  {
+    "case": "remark raw OpenAPI JSON",
+    "passed": true
+  },
+  {
+    "case": "remark schema references resolve",
+    "passed": true
+  },
+  {
+    "case": "promotion grouped route",
+    "passed": true
+  },
+  {
+    "case": "promotion raw OpenAPI JSON",
+    "passed": true
+  },
+  {
+    "case": "promotion schema references resolve",
+    "passed": true
+  },
+  {
+    "case": "gateway Swagger UI",
+    "passed": true
+  },
+  {
+    "case": "UI loads aggregated config",
+    "passed": true
+  },
+  {
+    "case": "existing doc.html entry",
+    "passed": true
+  }
+]

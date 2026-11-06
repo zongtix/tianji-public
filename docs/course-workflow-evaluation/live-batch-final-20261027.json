@@ -1,0 +1,76 @@
+{
+  "status": "completed-content-review-failed",
+  "sourceRecording": "target/course-user-review-20261025/replay-complete-2.json",
+  "purpose": "修正单卡序号保护与浏览主题依据后的一次原七轮交付复验，保留前批失败。",
+  "model": "deepseek-flash",
+  "destination": "https://api.deepseek.com/chat/completions",
+  "maxAnswers": 7,
+  "maxProviderHttpRequests": 24,
+  "automaticPaidRetries": false,
+  "embeddingRequests": 0,
+  "rerankRequests": 0,
+  "courseScope": [
+    {
+      "courseId": "1589888774267072513",
+      "name": "Java程序员的前端课程"
+    },
+    {
+      "courseId": "1589905661084430337",
+      "name": "可能是史上最全的微服务技术栈课程"
+    }
+  ],
+  "questions": [
+    "有哪些热门课程推荐？",
+    "这俩有啥区别",
+    "我也不知道",
+    "第二个是啥",
+    "有没有课程推荐",
+    "我不需要热门课程，我需要你给我量身定制课程",
+    "我会Java，能用Spring Boot和MyBatis写后端接口，现在想学HTML、CSS和JavaScript做网页，请按我的情况推荐一门课程。"
+  ],
+  "isolation": {
+    "newDedicatedSession": true,
+    "registerWithNacos": false,
+    "mutateCourseData": false,
+    "changeDailyConfiguration": false,
+    "allowedDataPaths": [
+      "search candidates",
+      "browse candidates",
+      "course details",
+      "final model request"
+    ],
+    "indexSync": false,
+    "semanticRetrieval": false,
+    "cleanup": "Only the new test session and processes owned by this batch."
+  },
+  "preflight": [
+    "核对验收代理当前版本，保留其他聊天的未提交改动。",
+    "在外发前执行两门课程资料范围检查和全批80次请求计数上限。",
+    "实际编译产物、提示词哈希和隔离实例有效配置随批次保存。",
+    "保证末轮工具结果独立记录；缺记录不推断执行成功。",
+    "确认新批次调用额度后执行，不复用旧批次额度。"
+  ],
+  "approval": "Corrective verification of the newly fixed version under the user-approved scoped delivery and original-seven acceptance plan. Same seven questions and two courses; this run is hard-limited to 24 provider requests. Combined with the prior delivery attempt (16), the delivery work remains below the established 80-request ceiling. Not an automatic HTTP retry or repeated sampling of the unchanged version.",
+  "previousBatch": "target/course-workflow/approved-seven-delivery-20261027",
+  "runDirectory": "target/course-workflow/approved-seven-final-20261027",
+  "deliveryRequestBudget": {
+    "ceiling": 80,
+    "alreadySpent": 16,
+    "thisRunLimit": 24,
+    "maximumCombined": 40,
+    "additionalCorrectiveRunsAllowed": 0
+  },
+  "result": {
+    "answers": 7,
+    "providerHttpRequests": 20,
+    "programChecks": "60/60",
+    "contentReview": "fail",
+    "localDeliveryReady": false,
+    "formalAcceptancePassed": false,
+    "independentHumanReview": "pending",
+    "traceStorageVerified": "7/7",
+    "scoresVerified": 63,
+    "additionalAnswersAllowed": 0,
+    "report": "../aigc-delivery-2026-10-27.md"
+  }
+}

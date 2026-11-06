@@ -1,0 +1,49 @@
+server:
+  port: 8092  #端口
+  tomcat:
+    uri-encoding: UTF-8   #服务编码
+spring:
+  config:
+    import:
+      - "nacos:shared-spring.yaml?group=DEFAULT_GROUP&refreshEnabled=false"
+      - "nacos:shared-redis.yaml?group=DEFAULT_GROUP&refreshEnabled=false"
+      - "nacos:shared-mybatis.yaml?group=DEFAULT_GROUP&refreshEnabled=false"
+      - "nacos:shared-logs.yaml?group=DEFAULT_GROUP&refreshEnabled=false"
+      - "nacos:shared-feign.yaml?group=DEFAULT_GROUP&refreshEnabled=false"
+      - "nacos:shared-mq.yaml?group=DEFAULT_GROUP&refreshEnabled=false"
+      - "nacos:shared-xxljob.yaml?group=DEFAULT_GROUP&refreshEnabled=false"
+      - "nacos:${spring.application.name}.yaml?group=DEFAULT_GROUP&refreshEnabled=true"
+      - "optional:nacos:${spring.application.name}-${spring.profiles.active}.yaml?group=DEFAULT_GROUP&refreshEnabled=true"
+  profiles:
+    active: dev
+  application:
+    name: promotion-service
+  rabbitmq:
+    publisher-confirm-type: correlated
+    publisher-returns: true
+    template:
+      mandatory: true
+  cloud:
+    nacos:
+      config:
+        namespace: ${NACOS_NAMESPACE:tianji-local-boot3}
+      discovery:
+        namespace: ${NACOS_NAMESPACE}
+tj:
+  swagger:
+    enable: true
+    enableResponseWrap: true
+    package-path: com.tianji.promotion.controller
+    title: 天机学堂 - 促销服务接口文档
+    description: 该服务提供优惠券管理、领取和使用等促销功能
+    contact-name: 传智教育·研究院
+    contact-url: http://www.itcast.cn/
+    contact-email: zhanghuyi@itcast.cn
+    version: v1.0
+  jdbc:
+    database: tj_promotion
+  auth:
+    resource:
+      enable: true
+      exclude-login-paths:
+        - /coupons/list

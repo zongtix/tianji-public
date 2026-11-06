@@ -1,0 +1,18 @@
+{
+  "status": "questions-only-not-model-results",
+  "courseIds": ["1589888774267072513", "1589905661084430337"],
+  "instructions": "Recheck current course data before execution. Keep model, prompt, questions and snapshot fixed for local/mcp. Record actual detail calls; no detail call means no MCP coverage. Never fill expected prices or validity from guesses.",
+  "cases": [
+    {"id":"detail","question":"Java程序员的前端课程适合什么基础的人？请查一下课程详情。","check":"CONSULT; actual queryCourseById and source; evidence-backed prerequisites"},
+    {"id":"catalogue","question":"请给出Java程序员的前端课程的正式目录。","check":"Full catalogue, no invented depth or coverage"},
+    {"id":"compare","question":"Java程序员的前端课程和可能是史上最全的微服务技术栈课程，适用人群有什么区别？","check":"Both details queried in the same request budget"},
+    {"id":"recommend","question":"我会Java，能用Spring Boot和MyBatis写接口，想学HTML、CSS和JavaScript做网页，请按课程关键词查找并核实详情后推荐一门。本轮试点只评估《Java程序员的前端课程》，请用这个完整课程名作为搜索关键词。","check":"Approved pilot scope only; searchCourses -> queryCourseById -> recommendCourses; current price/state; no recommendation without verification"},
+    {"id":"price","question":"Java程序员的前端课程现在多少钱，有效期多久？","check":"Integer cents/months preserved; current card recheck"},
+    {"id":"missing-field","setup":"Controlled fixture with missing price/usePeople","question":"这门课价格和适用人群是什么？","check":"Missing remains unknown; not free or not-found"},
+    {"id":"not-found","setup":"Controlled approved nonexistent ID with successful empty batch","question":"请查询这门课程的详情。","check":"Explicit NOT_FOUND only; describe this query"},
+    {"id":"unavailable-course","setup":"Controlled off-sale/expired course","question":"请推荐这门课。","check":"No card after local state recheck"},
+    {"id":"timeout","setup":"Controlled delayed MCP response","question":"请查这门课的详情。","check":"MCP_TOOL_TIMEOUT and STOP; no fallback or verified state"},
+    {"id":"stop","setup":"Stop generation during MCP wait","question":"请查这门课的详情。","check":"No later tool/card/answer; other request remains usable"},
+    {"id":"no-detail","question":"你好","check":"If no detail tool called, do not claim MCP was used"}
+  ]
+}

@@ -1,0 +1,40 @@
+# Created by .ignore support plugin (hsz.mobi)
+### Example user template template
+### Example user template
+
+# IntelliJ project files
+.idea
+*.iml
+out
+gen
+target
+*.class
+
+# Cursor
+.cursor/
+
+*.log
+__pycache__/
+*.pyc
+.settings
+.project
+logs
+job
+.playwright-cli/
+output/playwright/
+
+# Private deployment files and generated evidence
+.env
+.env.*
+!.env.example
+secrets/
+*.jks
+*.p12
+*.pfx
+*.pem
+*.key
+.claude/
+.codex/
+.mcp.json
+docs/rag-evaluation/results/
+docs/course-workflow-evaluation/results/

@@ -1,0 +1,236 @@
+[
+  {
+    "case": "anonymous cart requires login",
+    "passed": true,
+    "http": 401,
+    "code": null
+  },
+  {
+    "case": "extended business login",
+    "passed": true,
+    "http": 200,
+    "code": 200
+  },
+  {
+    "case": "owned search index",
+    "passed": true,
+    "http": null,
+    "code": null
+  },
+  {
+    "case": "search through gateway",
+    "passed": true,
+    "http": 200,
+    "code": 200
+  },
+  {
+    "case": "search resolves actual teacher over Feign",
+    "passed": true,
+    "http": null,
+    "code": null
+  },
+  {
+    "case": "search category filter",
+    "passed": true,
+    "http": 200,
+    "code": 200
+  },
+  {
+    "case": "search filter result",
+    "passed": true,
+    "http": null,
+    "code": null
+  },
+  {
+    "case": "search empty filter",
+    "passed": true,
+    "http": 200,
+    "code": 200
+  },
+  {
+    "case": "search filter excludes paid course",
+    "passed": true,
+    "http": null,
+    "code": null
+  },
+  {
+    "case": "add cart with course Feign",
+    "passed": true,
+    "http": 200,
+    "code": 200
+  },
+  {
+    "case": "duplicate cart is idempotent",
+    "passed": true,
+    "http": 200,
+    "code": 200
+  },
+  {
+    "case": "query cart with actual price",
+    "passed": true,
+    "http": 200,
+    "code": 200
+  },
+  {
+    "case": "one cart and course price",
+    "passed": true,
+    "http": null,
+    "code": null
+  },
+  {
+    "case": "pre-place order over course Feign",
+    "passed": true,
+    "http": 200,
+    "code": 200
+  },
+  {
+    "case": "pre-place price",
+    "passed": true,
+    "http": null,
+    "code": null
+  },
+  {
+    "case": "place order and detail transaction",
+    "passed": true,
+    "http": 200,
+    "code": 200
+  },
+  {
+    "case": "order and detail committed",
+    "passed": true,
+    "http": null,
+    "code": null
+  },
+  {
+    "case": "paid selection removed from cart",
+    "passed": true,
+    "http": 200,
+    "code": 200
+  },
+  {
+    "case": "cart removed after place order",
+    "passed": true,
+    "http": null,
+    "code": null
+  },
+  {
+    "case": "cancel unpaid order",
+    "passed": true,
+    "http": 200,
+    "code": 200
+  },
+  {
+    "case": "duplicate cancellation is idempotent",
+    "passed": true,
+    "http": 200,
+    "code": 200
+  },
+  {
+    "case": "query my order page",
+    "passed": true,
+    "http": 200,
+    "code": 200
+  },
+  {
+    "case": "prepare rollback order",
+    "passed": true,
+    "http": 200,
+    "code": 200
+  },
+  {
+    "case": "detail failure rejects order",
+    "passed": true,
+    "http": 200,
+    "code": 500
+  },
+  {
+    "case": "detail failure rolls back order row",
+    "passed": true,
+    "http": null,
+    "code": null
+  },
+  {
+    "case": "exam replace question links",
+    "passed": true,
+    "http": 200,
+    "code": 200
+  },
+  {
+    "case": "exam query question links",
+    "passed": true,
+    "http": 200,
+    "code": 200
+  },
+  {
+    "case": "exam saved both links",
+    "passed": true,
+    "http": null,
+    "code": null
+  },
+  {
+    "case": "exam replace is transactional",
+    "passed": true,
+    "http": 200,
+    "code": 200
+  },
+  {
+    "case": "exam query replaced links",
+    "passed": true,
+    "http": 200,
+    "code": 200
+  },
+  {
+    "case": "exam old links removed",
+    "passed": true,
+    "http": null,
+    "code": null
+  },
+  {
+    "case": "dashboard admin login",
+    "passed": true,
+    "http": 200,
+    "code": 200
+  },
+  {
+    "case": "data writes to isolated Redis",
+    "passed": true,
+    "http": 200,
+    "code": 200
+  },
+  {
+    "case": "data reads from isolated Redis",
+    "passed": true,
+    "http": 200,
+    "code": 200
+  },
+  {
+    "case": "dashboard number serialization",
+    "passed": true,
+    "http": null,
+    "code": null
+  },
+  {
+    "case": "ss actual OpenAPI",
+    "passed": true,
+    "http": 200,
+    "code": null
+  },
+  {
+    "case": "ts actual OpenAPI",
+    "passed": true,
+    "http": 200,
+    "code": null
+  },
+  {
+    "case": "es actual OpenAPI",
+    "passed": true,
+    "http": 200,
+    "code": null
+  },
+  {
+    "case": "ds actual OpenAPI",
+    "passed": true,
+    "http": 200,
+    "code": null
+  }
+]

@@ -1,0 +1,17 @@
+# Explicit, local-only trial profile; credentials are read from the child process environment.
+server:
+  address: 127.0.0.1
+logging:
+  level:
+    io.modelcontextprotocol: "OFF"
+tj:
+  trade:
+    sandbox-checkout:
+      enabled: true
+      app-id: ${AP_APP_ID:}
+      app-key: ${AP_APP_KEY:}
+      alipay-public-key: ${AP_PUB_KEY:}
+      node-command: ${ALIPAY_MCP_NODE:node}
+      server-script: ${ALIPAY_MCP_SCRIPT:}
+      allowed-course-ids: ${ALIPAY_MCP_COURSES:}
+      allowed-user-ids: ${ALIPAY_MCP_USERS:}

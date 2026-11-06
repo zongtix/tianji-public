@@ -1,0 +1,15 @@
+spring:
+  autoconfigure:
+    # XXL 2.3 scans every singleton, including lazy merchant SDK beans.
+    # Local development does not register real payment polling jobs.
+    exclude: com.tianji.common.autoconfigure.xxljob.XxlJobConfig
+  cloud:
+    nacos:
+      server-addr: ${NACOS_SERVER_ADDR:127.0.0.1:8848} # nacos注册中心
+      discovery:
+        namespace: ${NACOS_NAMESPACE:tianji-local-boot3}
+        group: DEFAULT_GROUP
+        ip: ${SERVICE_IP:127.0.0.1}
+logging:
+  level:
+    com.tianji: debug

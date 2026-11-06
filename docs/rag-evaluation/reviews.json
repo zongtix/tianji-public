@@ -1,0 +1,34 @@
+{
+  "reviewVersion": "codex-source-review-v1",
+  "reviewer": "Codex 对照当前公开来源与逐例回答的初审",
+  "independentHumanReview": "pending",
+  "modelJudgeCalibration": "not_performed",
+  "default": "pass_initial_review",
+  "notes": "初审不等于人工验收或校准后的模型裁判分数；警告不计为关键事实错误，但仍需复核。",
+  "overrides": {
+    "A": {
+      "points-03": {"status":"fail", "reason":"问题已明确学习积分45分，回答却先称需要确定积分类型，并要求额外澄清；虽出现5分，未直接尊重已知条件。"},
+      "points-04": {"status":"fail", "reason":"关键学习上限章节2未选入；无法给出按类型分别计算、其他类型仍可得分的已知结论。"},
+      "points-07": {"status":"fail", "reason":"空召回，未回答18+3只补足2分。"},
+      "points-09": {"status":"fail", "reason":"未选入评价规则章节3；对来源已明确否定的重复刷分规则表示资料不足。"},
+      "points-24": {"status":"fail", "reason":"空召回，未区分待发送消息与最终积分明细。"},
+      "points-25": {"status":"fail", "reason":"空召回，未回答确认超时或NACK时保持sent=0。"}
+    },
+    "APRIME": {
+      "points-03": {"status":"fail", "reason":"扩大召回已包含所需章节，但仍先称无法确定45分所属类型，未尊重问题明确给出的学习条件。"},
+      "points-09": {"status":"warn", "reason":"核心禁止重复刷分结论正确，但把0上限解释为某种设计目的，来源未说明该动机。"}
+    },
+    "B": {
+      "points-03": {"status":"warn", "reason":"给出5分，但额外加入积分类型假设；问题本身已说明学习积分。"},
+      "points-04": {"status":"fail", "reason":"融合候选仍未在前三片段保留关键章节2，回答未能确认已知的按类型分别计额规则。"},
+      "points-12": {"status":"warn", "reason":"数字21分正确且提到恰好第14天，但出现“每天合计”表述，应人工复核是否会误导奖励条件。"}
+    },
+    "B_CONTEXT": {
+      "points-03": {"status":"warn", "reason":"给出5分，但又加入未被询问的评价类型假设；不能归因于上下文策略收益。"},
+      "points-04": {"status":"fail", "reason":"与B选片一致，缺少关键章节2；预算处理没有找回已在前三之外的事实。"},
+      "points-09": {"status":"warn", "reason":"禁止重复刷分结论正确，但把稳定业务键去重归到同一章节，实际详细来源在章节7。"},
+      "points-25": {"status":"warn", "reason":"sent=0结论正确，但将已到达消息与NACK原因作了来源未充分展开的连接。"},
+      "points-26": {"status":"warn", "reason":"事实正确，但把两个并列章节描述成同一章节，来源表述不精确。"}
+    }
+  }
+}

@@ -1,0 +1,22 @@
+spring:
+  config:
+    # 用户目录保存本机凭据，IDEA/命令行使用 local 时自动加载；环境变量仍可覆盖。
+    import: "optional:file:${TJ_AI_LANGFUSE_CONFIG:${user.home}/.tianji/aigc-langfuse.properties}"
+  cloud:
+    nacos:
+      server-addr: ${NACOS_SERVER_ADDR:127.0.0.1:8848}
+      discovery:
+        namespace: ${NACOS_NAMESPACE:tianji-local-boot3}
+        group: DEFAULT_GROUP
+        ip: ${SERVICE_IP:127.0.0.1}
+tj:
+  ai:
+    observation:
+      conversation-content: false
+      memory-details: false
+      model-content: false
+    knowledge:
+      rag:
+        mode: B
+        rerank:
+          enabled: false
